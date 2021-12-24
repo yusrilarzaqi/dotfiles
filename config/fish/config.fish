@@ -3,12 +3,13 @@ if status is-interactive
     #set BLUE "\e[94m"
     #set BLUE "\e[97m"
     #set STOP "\e[0m"
-    set time (date +"%A, %d %m %y %H : %M%p : %S")
+    # set time (date +"%A, %d %m %y %H : %M%p : %S")
     
     function fish_greeting
         #printf "$BLUE"
         set_color brblue
-        figlet -f slant "$time"
+        # figlet -f slant "$time"
+        figlet -f slant "Yusril Arzaqi"
         # fish_logo brblue brmagenta brgreen
         #printf "$STOP"
     end
