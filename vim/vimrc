@@ -2,12 +2,9 @@ call plug#begin("~/.vim/plugged")
 
 
 Plug 'tpope/vim-commentary' " Comment stuff out
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-markdown' 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
-
-" Indent Guides is a plugin for visually displaying indent levels in Vim.
-Plug 'nathanaelkane/vim-indent-guides'
 
 Plug 'ap/vim-css-color' " CSS COLOR 
 
@@ -17,19 +14,28 @@ Plug 'townk/vim-autoclose' " Auto Close
 " Plug 'honza/vim-snippets' " snippet
 " Plug 'sirver/ultisnips'
 
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-"Plug 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'ryanoasis/vim-devicons'
-Plug 'ghifarit53/tokyonight-vim'
 
+" Colorscheme
+Plug 'ghifarit53/tokyonight-vim' " Tokyonight
+Plug 'frenzyexists/aquarium-vim', { 'branch': 'develop' } " Aquarium
 
 call plug#end()
 
 map <C-x> :ter <return>
+vnoremap <C-c> "+y
+map <C-p> "+P
 
 set termguicolors
 
@@ -67,22 +73,24 @@ set showtabline=2 " 2
 set cmdheight=1
 
 " Auro close brackets
-inoremap " ""<left>
-inoremap ` ``<left>
+"inoremap " ""<left>
+"inoremap ` ``<left>
 
 " ============================================================================
 " AIRLINE CONFIGURATION
 " " ============================================================================
 " set airline theme
+"let g:airline_theme = 'base16_aquarium_dark'
 let g:airline_theme = 'tokyonight'
 " displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#enabled = 1
 " separators can be configured independently for the tablne
 let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = ' <>'
-"let g:airline#extensions#tabline#left_alt_sep = '<'
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " populate the g:airline_symbols dictionary with the powerline symbols
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#formatter = 'jsformatter'
+
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
@@ -302,47 +310,17 @@ let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 
-
-" ============================================================================
-" VIM_DEV_ICONS CONFIGURATION
-" ============================================================================
-" loading the plugin
-let g:webdevicons_enable = 1
-" adding the flags to NERDTree
-let g:webdevicons_enable_nerdtree = 1
-" adding the custom source to unite
-let g:webdevicons_enable_unite = 1
-" adding the column to vimfiler
-let g:webdevicons_enable_vimfiler = 1
-" adding to vim-airline's tabline
-let g:webdevicons_enable_airline_tabline = 1
-" adding to vim-airline's statusline
-let g:webdevicons_enable_airline_statusline = 1
-" ctrlp glyphs
-let g:webdevicons_enable_ctrlp = 1
-" adding to vim-startify screen
-let g:webdevicons_enable_startify = 1
-" adding to flagship's statusline
-let g:webdevicons_enable_flagship_statusline = 1
-" turn on/off file node glyph decorations (not particularly useful)
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
-" use double-width(1) or single-width(0) glyphs
-" only manipulates padding, has no effect on terminal or set(guifont) font
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-" whether or not to show the nerdtree brackets around flags
-let g:webdevicons_conceal_nerdtree_brackets = 1
-" the amount of space to use after the glyph character (default ' ')
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
-" Force extra padding in NERDTree so that the filetype icons line up vertically
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-" Adding the custom source to denite
-let g:webdevicons_enable_denite = 1
-
-
- " customize conceal color
-let g:indentLine_color_term = 239
-" customize conceal color
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_char_list = ['┊']
-
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
+
+
+" Aquarium
+" On = 1 (default) | Off = 0
+" let g:aqua_bold = 1
+" On = 1 | Off = 0 (default)
+" let g:aqua_transparency = 1
+" To enable Lightmode change the style variable:
+" options: "light", "dark"
+" let g:aquarium_style="dark"
+
+
+
