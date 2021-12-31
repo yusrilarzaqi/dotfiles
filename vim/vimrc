@@ -17,6 +17,8 @@ Plug 'townk/vim-autoclose' " Auto Close
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" JSX
+Plug 'mxw/vim-jsx'
 
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -85,12 +87,16 @@ let g:airline_theme = 'tokyonight'
 " displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#enabled = 1
 " separators can be configured independently for the tablne
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
+" let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = ''
 " populate the g:airline_symbols dictionary with the powerline symbols
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#formatter = 'jsformatter'
-
+let g:airline_left_sep = ''
+let g:airline_right_sep = "\uE0BE"
+let g:airline_left_alt_sep = ''
+"let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
@@ -114,9 +120,6 @@ set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
-
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -313,6 +316,7 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 
 
+
 " Aquarium
 " On = 1 (default) | Off = 0
 " let g:aqua_bold = 1
@@ -321,6 +325,5 @@ let g:AutoClosePumvisible = {"ENTER": "\<C-Y>", "ESC": "\<ESC>"}
 " To enable Lightmode change the style variable:
 " options: "light", "dark"
 " let g:aquarium_style="dark"
-
 
 
