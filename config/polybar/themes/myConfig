@@ -29,7 +29,7 @@ compositing-border = over
 include-file = $HOME/.dotfiles/config/polybar/colors
 
 [bar/Top]
-; monitor = ${env:MONITOR:HDMI-1}
+;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
 height = 19
 offset-x = 0
@@ -58,26 +58,24 @@ overline-color = ${colors.background-alt}
 padding-left = 0
 padding-right = 1
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 2
 
-font-0 = "TeminessTTF Nerd Font Mono:pixelsize=9;1"
+font-0 = "TeminessTTF NF:pixelsize=9;1"
 font-1 = "JetBrainsMono Nerd Font:pixelsize=11;2"
 font-2 = "JetBrainsMono Nerd Font:pixelsize=9;2"
 font-3 = "Iosevka Nerd Font Mono:pixelsize=10;2"
 font-4 = "JetBrainsMono Nerd Font:pixelsize=14;1"
 font-5 = "JetBrainsMono Nerd Font:pixelsize=12;3"
 
-modules-left = i3 xwindow
+modules-left = i3
 modules-center =
 modules-right = xkeyboard uptime pulseaudio temperature ram wlan eth battery date
 
 tray-position = right
 tray-padding = 2
 tray-transparent = true
-tray-background = #CCE5E9F0
-; tray-background = ${colors.foreground}
-;
+tray-background = ${colors.foreground}
 
 wm-restack = i3
 
@@ -158,7 +156,7 @@ label-maxlen = 90
 label-empty = "✖"
 
 format = <label>
-; format-underline = ${colors.secondary}
+format-underline = ${colors.secondary}
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
 format-padding = 1
@@ -199,7 +197,7 @@ format-spacing = 0
 ; Available tokens:
 ;   %name%
 ;   %icon%
-label-indicator-on-capslock = %{T2 F#e5e9f0 B#4C566A}  %{T4 F#2e3440 B#CCE5E9F0} %name% %{T- F- B-}
+label-indicator-on-capslock = %{T2 F#e5e9f0 B#4C566A}  %{T4 F#2e3440 B#e5e9f0} %name% %{T- F- B-}
 label-indicator-off-capslock = ""
 ; label-indicator-on-scrolllock =
 ; label-indicator-off-scrolllock =
@@ -239,13 +237,12 @@ interval = 1.0
 ;   %upspeed%   [wireless+wired]
 ;   %downspeed% [wireless+wired]
 ;   %linkspeed% [wired]
-; label-connected = %essid%  %downspeed% 祝 %upspeed%
-label-connected = %essid% 
+label-connected = %essid%  %downspeed% 祝 %upspeed%
 ; Gruvboxk
 ; format-connected = %{T3 B#d79921 F#282828} <ramp-signal> %{T4 B#32302f F#ebdbb2} <label-connected> %{F- B- F-}
 ; Nord
 ; format-connected = %{T2 B#ebcb8b F#2e3440} <ramp-signal> %{T3 B#2e3440 F#e5e9f0} <label-connected> %{F- B- F-}
-format-connected = %{T6 B#ebcb8b F#2e3440} <ramp-signal> %{T3 B#CCE5E9F0 F#2e3440} <label-connected> %{F- B- F-}
+format-connected = %{T6 B#ebcb8b F#2e3440} <ramp-signal> %{T3 B#e5e9f0 F#2e3440} <label-connected> %{F- B- F-}
 
 ; 
 ramp-signal-0 = "﬉ "
@@ -253,6 +250,7 @@ ramp-signal-1 = "﬉ "
 ramp-signal-2 = "﬉ "
 ramp-signal-3 = "﬉ "
 ramp-signal-4 = "﬉ "
+ramp-signal-5 = "﬉ "
 
 ; ramp-signal-0 = "﬉ "
 ; ramp-signal-1 = "﬉ ❯"
@@ -265,7 +263,7 @@ ramp-signal-4 = "﬉ "
 ; label-disconnected = %{T3 B#d79921 F#282828} 睊  %{T4 B#32302f F#ebdbb2} disconnected %{T- B- F-}
 ; Nord
 ; label-disconnected = %{T3 B#ebcb8b F#2e3440} 睊  %{T4 B#2e3440 F#e5e9f0} disconnected %{T- B- F-}
-label-disconnected = %{T3 B#ebcb8b F#2e3440} 睊  %{T4 B#CCE5E9F0 F#2e3440} disconnected %{T- B- F-}
+label-disconnected = %{T3 B#ebcb8b F#2e3440} 睊  %{T4 B#e5e9f0 F#2e3440} disconnected %{T- B- F-}
 format-disconnected = <label-disconnected>
 
 [module/eth]
@@ -285,8 +283,8 @@ interval = 1
 ; Nord
 ; date-alt = "%{T2 B#8fbcbb F#2e3440}   %{T4 B#2e3440 F#e5e9f0} %A, %d %m %y %{T- B- F-}"
 ; time = "%{T2 B#8fbcbb F#2e3440}  %{T4 B#2e3440 F#e5e9f0} %I:%M:%S %p %{T- B- F-}"
-date-alt = "%{T2 B#E977FE F#2e3440}   %{T4 B#CCE5E9F0 F#2e3440} %A, %d %m %y %{T- B- F-}"
-time = "%{T2 B#E977FE F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} %I:%M:%S %p %{T- B- F-}"
+date-alt = "%{T2 B#E977FE F#2e3440}   %{T4 B#e5e9f0 F#2e3440} %A, %d %m %y %{T- B- F-}"
+time = "%{T2 B#E977FE F#2e3440}  %{T4 B#e5e9f0 F#2e3440} %I:%M:%S %p %{T- B- F-}"
 format = <label> 
 
 label = %time% %date%
@@ -308,7 +306,7 @@ label-volume = %percentage%%
 ; label-volume-foreground = ${colors.foreground-alt}
 ; Nord
 ; format-volume = %{T2 B#81a1c1 F#2e3440} <ramp-volume> %{T4 B#2e3440 F#e5e9f0}  <label-volume> %{T- B- F-}
-format-volume = %{T2 B#81a1c1 F#2e3440} <ramp-volume> %{T4 B#CCE5E9F0 F#2e3440} <label-volume> %{T- B- F-}
+format-volume = %{T2 B#81a1c1 F#2e3440} <ramp-volume> %{T4 B#e5e9f0 F#2e3440} <label-volume> %{T- B- F-}
 ; label-volume-foreground = ${colors.foreground-alt}
 
 ; Available tokens:
@@ -318,7 +316,7 @@ format-volume = %{T2 B#81a1c1 F#2e3440} <ramp-volume> %{T4 B#CCE5E9F0 F#2e3440} 
 ; Gruvbox
 ; label-muted = "%{T2 B#cc241d F#282828}  %{T4 B#32302f F#ebdbb2} muted %{T- B- F-}"
 ; Nord
-label-muted = "%{T2 B#bf616a F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} muted %{T- B- F-}"
+label-muted = "%{T2 B#bf616a F#2e3440}  %{T4 B#e5e9f0 F#2e3440} muted %{T- B- F-}"
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
@@ -358,17 +356,17 @@ full-at = 99
 ; label-charging = %{T3 B#fb4934 F#282828}   %{T- B- F-} %percentage%% 
 ; format-charging =  "%{T4 B#32302f F#ebdbb2}<label-charging> %{T5} <animation-charging> %{T- B- F-}"
 ; NORD
-label-charging = %{T3 B#bf616a F#2e3440}   %{T4 B#CCE5E9F0 F#2e3440} %percentage%% %{T- B- F-}
+label-charging = %{T3 B#bf616a F#2e3440}   %{T4 B#eceff4 F#2e3440} %percentage%% %{T- B- F-}
 format-charging =  "%{T4 B#2e3440 F#eceff4}<label-charging> %{T5} <animation-charging> %{T- B- F-}" 
 ; format-charging =  "%{T4 B#eceff4 F#2e3440}<label-charging> %{T5}<animation-charging> %{T- B- F-}" discharging
 ; Gruvbox
 ; label-discharging = %{T2 B#fb4934 F#282828}  %{T- B- F-}  %percentage%%
 ; format-discharging = "%{T4 B#32302f F#ebdbb2}<label-discharging> %{T5}<ramp-capacity>%{T- B- F-}   "
 ; NORD
-label-discharging = %{T2 B#bf616a F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} %percentage%% %{B- T-}
+label-discharging = %{T2 B#bf616a F#2e3440}  %{T4 B#eceff4 F#2e3440} %percentage%% %{B- T-}
 ; format-discharging = "%{T4 B#2e3440 F#eceff4}<label-discharging> %{T5}<ramp-capacity>%{T- B- F-}   "
 ; format-discharging = "<label-discharging> %{T5}<ramp-capacity>%{T- B- F-}   "
-format-discharging = "<label-discharging>"
+format-discharging = "<label-discharging> "
 
 format-full = <ramp-capacity> <label-full>
 format-full-overline = ${colors.green}
@@ -443,8 +441,8 @@ warn-temperature = 60
 ; Nord
 ; format = %{T2 B#d08770 F#2e3440} <ramp> %{T4 B#2e3440 F#e5e9f0} <label> %{T- B- F-}
 ; format-warn = %{T2 B#bf616a F#2e3440} <ramp> %{T4 B#2e3440 F#e5e9f0} <label-warn> %{T- B- F-}
-format = %{T2 B#d08770 F#2e3440} <ramp> %{T4 B#CCE5E9F0 F#2e3440} <label> %{T- B- F-}
-format-warn = %{T2 B#bf616a F#2e3440} <ramp> %{T4 B#CCE5E9F0 F#2e3440} <label-warn> %{T- B- F-}
+format = %{T2 B#d08770 F#2e3440} <ramp> %{T4 B#e5e9f0 F#2e3440} <label> %{T- B- F-}
+format-warn = %{T2 B#bf616a F#2e3440} <ramp> %{T4 B#e5e9f0 F#2e3440} <label-warn> %{T- B- F-}
 
 label = %temperature-c%
 label-warn = %temperature-c%
@@ -463,7 +461,7 @@ exec = $HOME/.dotfiles/config/polybar/myScript/script.sh
 ; format = %{T2 B#98971a F#282828}  %{T4 B#32302f F#ebdbb2} <label> %{T- B- F-}
 ; Nord
 ; format = %{T2 B#a3be8c F#2e3440}  %{T4 B#2e3440 F#e5e9f0} <label> %{T- B- F-}
-format = %{T2 B#a3be8c F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} <label> %{T- B- F-}
+format = %{T2 B#a3be8c F#2e3440}  %{T4 B#e5e9f0 F#2e3440} <label> %{T- B- F-}
 click-right = nmcli d disconnect wlan0
 click-left = nmcli d connect wlan0
 
@@ -472,7 +470,7 @@ type = custom/script
 interval =  1
 
 exec = $HOME/.dotfiles/config/polybar/myScript/uptime.sh
-format = %{T4 F#2e3440 B#CCE5E9F0} <label> %{T- F- B-}
+format = %{T4 F#2e3440 B#e5e9f0} <label> %{T- F- B-}
 format-padding = 0
 
 

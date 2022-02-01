@@ -21,16 +21,28 @@ set $mod Mod4
 #
 
 ############ GRUVBOX ############
-set $background         #282828
-set $background-alt     #3c3836
-set $foreground         #ebdbb4
-set $foreground-alt     #a89984
-set $main_color #fe8019
-set $blue       #389aac
-set $red        #FB4934
-set $green      #7bb75b
-set $orange     #ff8700
-set $gray       #282828
+# set $background         #282828
+# set $background-alt     #3c3836
+# set $foreground         #ebdbb4
+# set $foreground-alt     #a89984
+# set $main_color #fe8019
+# set $blue       #389aac
+# set $red        #FB4934
+# set $green      #7bb75b
+# set $orange     #ff8700
+# set $gray       #282828
+
+############ NORD #############
+set $background         #2e3440
+set $background-alt     #4c566a
+set $foreground         #e5e9f0
+set $foreground-alt     #d8dee9
+set $main_color         #81a1c1
+set $blue               #81a1c1
+set $red                #bf616a
+set $green              #a3be8c
+set $orange             #d08770
+set $gray               #d8dee9
 
 ######### TOKYONIGHT ###########
 # set $background         #031021
@@ -90,8 +102,8 @@ popup_during_fullscreen smart
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
@@ -177,7 +189,7 @@ bindsym $mod+d focus child
 # client.background       #ffffff
 hide_edge_borders smart
 new_window pixel 1
-new_float normal 2
+new_float normal 0
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -198,7 +210,7 @@ bindsym $mod+2 workspace number $ws2
 bindsym $mod+3 workspace number $ws3
 bindsym $mod+4 workspace number $ws4
 bindsym $mod+5 workspace number $ws5
-# bindsym $mod+6 workspace number $ws6
+bindsym $mod+6 workspace number $ws6
 # bindsym $mod+7 workspace number $ws7
 # bindsym $mod+8 workspace number $ws8
 # bindsym $mod+9 workspace number $ws9
@@ -210,7 +222,7 @@ bindsym $mod+Shift+2 move container to workspace number $ws2
 bindsym $mod+Shift+3 move container to workspace number $ws3
 bindsym $mod+Shift+4 move container to workspace number $ws4
 bindsym $mod+Shift+5 move container to workspace number $ws5
-# bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+6 move container to workspace number $ws6
 # bindsym $mod+Shift+7 move container to workspace number $ws7
 # bindsym $mod+Shift+8 move container to workspace number $ws8
 # bindsym $mod+Shift+9 move container to workspace number $ws9
@@ -265,7 +277,7 @@ exec nitrogen --restore &
 bindsym $mod+x exec i3lock-fancy -p
 
 # Asign spesific application workspace
-assign [class="Firefox"] $ws1
+# assign [class="Firefox"] $ws1
 
 # Caps_Lock
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
@@ -274,29 +286,41 @@ assign [class="Firefox"] $ws1
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Rofi
-bindsym ctrl+shift+space exec rofi -show run
 bindsym Mod4+Mod1+space exec rofi -show drun
 
 # Window title alingment 
 title_align left
 
 # Window title format
-for_window [class="^.*"] title_format " ❯ %title"
+for_window [class="^.*"] title_format " ❯ <b>%class</b>"
+
+
+
+
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+
 
 # border syle for new window
-default_border normal 1px
-default_border pixel 1px
+# default_border normal 1px
+default_border pixel 2
 
-bindsym $mod+t border normal 1
+bindsym $mod+t border normal 2
 bindsym $mod+Shift+t border normal 0
 bindsym $mod+y border none
-bindsym $mod+Shift+y border pixel 1
+bindsym $mod+Shift+y border pixel 2
 
 # Compositor using picom
 exec_always --no-startup-id picom &
 
+# Run flameshot for first time
+exec --no-startup-id flameshot &
+
 #4.13. Hiding borders adjacent to the screen edges
-hide_edge_borders vertical
+hide_edge_borders smart
+
+# 4.31. Drawing marks on window decoration
+show_marks yes
 
 
 # Enable Taping
@@ -334,7 +358,7 @@ bindsym $mod+BackSpace mode "$mode_system"
 #                    |\       /|                               /|        
 #                    |/       \|                               \|        
 #
-for_window [class="^.*"] border normal 1
+for_window [class="^.*"] border pixel 2
 smart_gaps on
 
 gaps inner 4

@@ -1,0 +1,17 @@
+; Wombat
+
+background    =        #A6171717
+background-alt=        #453a39
+foreground    =        #ded9ce
+foreground-alt=        #bbbbbb
+
+primary       =        #82fff6
+secondary     =        #f58b7f
+
+red = #f58b7f
+yellow = #ead89c
+green  = #b1e869
+alert = #ff605a
+
+
+

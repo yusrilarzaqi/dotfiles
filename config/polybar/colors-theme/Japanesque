@@ -1,0 +1,13 @@
+; Japanesque
+;background = #A61d1d1d
+background = #CC1d1d1d
+background-alt = #A6343835
+foreground = #f7f6ec
+foreground-alt = #b1b5ae
+
+primary = #389aac
+secondary = #eccf4f
+red = #ce3e60
+yellow = #e8b32a
+green = #7bb75b
+alert = #dc143c

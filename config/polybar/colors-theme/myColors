@@ -1,0 +1,18 @@
+; Tokyonight
+
+background = #CC020E1D
+background-alt = #2e3440
+
+foreground = #dfdfdf
+foreground-alt = #a9b1d6
+
+primary = #4ABAAF
+secondary = #e60053
+
+green = #9ECE6A
+red = #F7768E
+yellow = #E0AF68
+alert = #bd2c40
+
+
+

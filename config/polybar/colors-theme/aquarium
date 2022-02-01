@@ -1,0 +1,13 @@
+; aquarium
+background = #A63d4058
+background-alt = #63718B
+foreground = #cddbf9
+foreground-alt = #a7b7d6
+primary = #6a8cbc
+secondary = #d66652
+green = #7d9685
+red = #e06b6b
+yellow = #e6dfb8
+alert = #c34864
+
+

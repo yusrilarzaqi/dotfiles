@@ -1,0 +1,23 @@
+; GRUVBOX DARK
+
+background = #CC282828
+background-alt = #3c3836
+
+foreground = #ebdbb4
+foreground-alt = #a89984
+
+primary = #458588
+secondary = #fb4934
+
+green = #689d6a
+red = #fb4934
+yellow = #d79921
+aqua = #8ec67c
+orange = #ED5A58
+
+alert = #cc241d
+
+
+
+
+

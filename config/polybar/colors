@@ -1,0 +1,23 @@
+; NORD
+
+background = #CC2E3440
+background-alt = #4C566A
+
+foreground = #e5e9f0
+foreground-alt = #D8DEE9
+
+primary = #81a1c1
+secondary = #bf616a
+
+green = #a3be8c
+red = #bf616a
+yellow = #ebcb8b
+aqua = #88c0d0
+orange = #d08770
+
+alert = #cc241d
+
+
+
+
+
