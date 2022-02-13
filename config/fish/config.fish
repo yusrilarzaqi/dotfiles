@@ -31,6 +31,8 @@ alias ls='exa --icons'
 alias lsa='ls -a'
 alias graph='git log --oneline --all --graph --decorate'
 alias ip='ip -c'
+alias aupd='sudo apt update'
+alias aupg='sudo apt dist-upgrade'
 
 
 #function fish_user_key_bindings
