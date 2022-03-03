@@ -5,11 +5,16 @@
     "javascript": "javascriptreact"
   },
 
-  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "javascript", "graphql", "html", "yaml",  "json", "python"],
+  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "graphql", "html", "yaml",  "json", "python", "php"],
   "prettier.tabWidth": 2,
   "prettier.useTabs": true,
 
   // python config
   "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true
+  "python.linting.pylintEnabled": true,
+
+  // Snippet
+  "snippets.extends": {
+    "php" : ["html"]
+  }
 }

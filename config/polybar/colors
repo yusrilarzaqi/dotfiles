@@ -1,23 +1,19 @@
-; NORD
+; Tokyonight
 
-background = #CC2E3440
-background-alt = #4C566A
+background = #CC0F091F
+background-alt = #2e3440
 
-foreground = #e5e9f0
-foreground-alt = #D8DEE9
+foreground = #a9b1d6
+foreground-alt = #a9b1d6
 
-primary = #81a1c1
-secondary = #bf616a
+primary = #4ABAAF
+secondary = #e60053
 
-green = #a3be8c
-red = #bf616a
-yellow = #ebcb8b
-aqua = #88c0d0
-orange = #d08770
-
-alert = #cc241d
-
-
+green = #9ECE6A
+red = #F7768E
+yellow = #E0AF68
+alert = #bd2c40
+orange = #AC834B
 
 
 

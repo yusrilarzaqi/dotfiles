@@ -28,8 +28,8 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " JSX
-Plug 'mxw/vim-jsx'
-Plug 'chemzqm/vim-jsx-improve'
+" Plug 'mxw/vim-jsx'
+" Plug 'chemzqm/vim-jsx-improve'
 
 Plug 'scrooloose/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'

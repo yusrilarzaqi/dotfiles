@@ -2,6 +2,7 @@ set termguicolors
 
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
 
 colorscheme tokyonight
 
@@ -81,9 +82,9 @@ set shortmess+=c
 
 
 " transparent bg
-autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE
 " For Vim<8, replace EndOfBuffer by NonText
-autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
+" autocmd vimenter * hi EndOfBuffer guibg=NONE ctermbg=NONE
 
 " Markdown
 "let g:markdown_syntax_connceal = 0

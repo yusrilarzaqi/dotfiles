@@ -28,7 +28,7 @@ map <C-p> "+P
 
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
-nnoremap <leader>j :tabprevious<CR>
-nnoremap <leader>k :tabnext<CR>
+nnoremap <space>j :tabprevious<CR>
+nnoremap <space>k :tabnext<CR>
 
 

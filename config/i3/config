@@ -33,26 +33,28 @@ set $mod Mod4
 # set $gray       #282828
 
 ############ NORD #############
-set $background         #2e3440
-set $background-alt     #4c566a
-set $foreground         #e5e9f0
-set $foreground-alt     #d8dee9
-set $main_color         #81a1c1
-set $blue               #81a1c1
-set $red                #bf616a
-set $green              #a3be8c
-set $orange             #d08770
-set $gray               #d8dee9
+# set $background         #2e3440
+# set $background-alt     #4c566a
+# set $foreground         #e5e9f0
+# set $foreground-alt     #d8dee9
+# set $main_color         #81a1c1
+# set $blue               #81a1c1
+# set $red                #bf616a
+# set $green              #a3be8c
+# set $orange             #d08770
+# set $gray               #d8dee9
 
 ######### TOKYONIGHT ###########
-# set $background         #031021
-# set $background-alt     #1a1b26
-# set $foreground         #a9b1d6
-# set $foreground-alt     #4e5173
-# set $main_color #7AA2F7
-# set $red        #F776BE
-# set $green      #9ECE6A
-# set $gray       #acb0d0
+set $background         #031021
+set $background-alt     #1a1b26
+set $foreground         #a9b1d6
+set $foreground-alt     #4e5173
+set $main_color #7AA2F7
+set $blue       #4abaaf
+set $red        #F776BE
+set $green      #9ECE6A
+set $orange     #E0Af68 
+set $gray       #acb0d0
 
 
 # class                 border          backgr          text            indicator       child-border
