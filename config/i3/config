@@ -6,7 +6,7 @@
 #    \_/|/ \_/|_/ \/    |_/|_/|__/   \__/\_/   |_/ /_/ \_/|_/\_/|_/|_/
 #      /|                                           /|          |\    
 #      \|                                           \|          |/    
-
+#      AUTOR = YUSRIL Arzaqi
 # Mod Key uing windows key
 # Mod1 = Alt key
 # Mod4 = Superkey / windows key
@@ -19,6 +19,7 @@ set $mod Mod4
 # |     /  \_|/  /  \_/  |  / \_
 #  \___/\__/ |__/\__/    |_/ \/
 #
+set $none      #00000000
 
 ############ GRUVBOX ############
 # set $background         #282828
@@ -45,11 +46,13 @@ set $mod Mod4
 # set $gray               #d8dee9
 
 ######### TOKYONIGHT ###########
-set $background         #031021
+# set $background         #031021
+set $background         #020eid
 set $background-alt     #1a1b26
 set $foreground         #a9b1d6
 set $foreground-alt     #4e5173
-set $main_color #7AA2F7
+# set $main_color #7AA2F7
+set $main_color #5cb281
 set $blue       #4abaaf
 set $red        #F776BE
 set $green      #9ECE6A
@@ -59,12 +62,10 @@ set $gray       #acb0d0
 
 # class                 border          backgr          text            indicator       child-border
 client.focused          $main_color     $main_color     $background     $red            $main_color
-client.focused_inactive $gray           $background-alt $foreground     $gray           $background
-client.unfocused        $gray           $background-alt $foreground     $gray           $background
+client.focused_inactive $gray           $background     $foreground     $gray           $background
+client.unfocused        $background-alt $background-alt $foreground     $gray           $none
 client.urgent           $gray           $red            $background-alt $red            $red
 client.placeholder      #000000         #0c0c0c         #ffffff         #000000         #0c0c0c
-
-
 
 #
 # ______
@@ -75,7 +76,7 @@ client.placeholder      #000000         #0c0c0c         #ffffff         #000000 
 #
 
 # using font Nerd Font
-# font pango:JetBrainsMono Nerd Font 10
+# font pango:JetBrainsMono Nerd Font 9
 # font pango:Iosevka Nerd Font 10
 font pango:TerminessTTF Nerd Font  11
 #font pango:Terminus (TTL) 10
@@ -89,11 +90,24 @@ font pango:TerminessTTF Nerd Font  11
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy --nofork
+
+# exec pamac
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id pamac-tray
+
+# system tray volume
+exec --no-startup-id pa-applet
+
+# system tray battery
+exec --no-startup-id xfce4-power-manager
 
 # NetworkManager is the most popularoi9 way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
+
+# screenshoot
+exec --no-startup-id flameshot
 
 # enable or disable focus on mouse hover (yes | no)
 focus_follows_mouse no
@@ -117,19 +131,20 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 floating_modifier $mod
 
 # Constraining floating window size
-floating_maximum_size 1000 x 600 
+floating_maximum_size 1100 x 600 
 floating_minimum_size 500 x 300
 
 # start a terminal move to konsole
 # bindsym $mod+Return exec konsole
 # bindsym $mod+Return exec --no-startup-id kitty
-bindsym $mod+Return exec --no-startup-id konsole
+# bindsym $mod+Return exec --no-startup-id xfce4-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run -p RUN:
+# bindsym $mod+p exec dmenu_run -p RUN:
 
 # layout mode for new containers
 # this option determines in which mode new containers on workspace level will start
@@ -190,7 +205,7 @@ bindsym $mod+d focus child
 
 # client.background       #ffffff
 hide_edge_borders smart
-new_window pixel 1
+new_window pixel 0
 new_float normal 0
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -268,9 +283,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # bar using polybar
-#bar {
-
-#}
+# bar {
+#         status_command i3blocks
+#         position top
+# }
 
 # Wallpaper using nitrogen
 exec nitrogen --restore &
@@ -288,14 +304,19 @@ bindsym $mod+x exec i3lock-fancy -p
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Rofi
-bindsym Mod4+Mod1+space exec rofi -show drun
+bindsym Mod4+p exec rofi -show drun -theme ~/.config/rofi/themes/nord.rasi
+bindsym Mod4+o exec rofi -show run -theme ~/.config/rofi/themes/nord.rasi
+# bindsym Mod4+o exec rofi -show run
 
 # Window title alingment 
 title_align left
 
-# Window title format
-for_window [class="^.*"] title_format " ❯ <b>%class</b>"
+# Window title icon
+# title_window_icon no
 
+# Window title format
+# for_window [class="^.*"] title_format " ❯ <b>%class</b>"
+for_window [class="^.*"] title_format " ❯ %class"
 
 
 
@@ -305,7 +326,7 @@ bindsym $mod+minus scratchpad show
 
 # border syle for new window
 # default_border normal 1px
-default_border pixel 2
+default_border pixel 1
 
 bindsym $mod+t border normal 2
 bindsym $mod+Shift+t border normal 0
@@ -315,23 +336,17 @@ bindsym $mod+Shift+y border pixel 2
 # Compositor using picom
 exec_always --no-startup-id picom &
 
-# Run flameshot for first time
-exec --no-startup-id flameshot &
-
 #4.13. Hiding borders adjacent to the screen edges
 hide_edge_borders smart
 
 # 4.31. Drawing marks on window decoration
 show_marks yes
 
-
 # Enable Taping
 exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
 
 # Then, if you hit $mod+2 again, you’ll go back to your previous workspaces, workspace 1.
 workspace_auto_back_and_forth yes
-
-
 
 # Keybinding for lock logout reboot shutdown
 # shutdown / restart / suspend...
@@ -360,11 +375,12 @@ bindsym $mod+BackSpace mode "$mode_system"
 #                    |\       /|                               /|        
 #                    |/       \|                               \|        
 #
+#
 for_window [class="^.*"] border pixel 2
 smart_gaps on
 
 gaps inner 4
-gaps outer 3
+gaps outer 0
 
 # GAP MODE
 set $mode_gaps Gaps: (o)uter, (i)nner, (h)orizontal, (v)ertical, (t)op, (r)ight, (b)ottom, (l)eft
