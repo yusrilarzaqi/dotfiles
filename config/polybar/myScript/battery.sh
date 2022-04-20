@@ -1,14 +1,63 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-BAT=$(acpi -b | grep -E -o '[0-9][0-9]?%')
+## Author  : Aditya Shakya
+## Mail    : adi1090x@gmail.com
+## Github  : @adi1090x
+## Twitter : @adi1090x
 
-# Full and short texts
-#echo "Battery: $BAT"
-#echo "BAT: $BAT"
-echo $BAT
+# style="$($HOME/.config/rofi/applets/menu/style.sh)"
 
-# Set urgent flag below 5% or use orange below 20%
-[ ${BAT%?} -le 5 ] && exit 33
-[ ${BAT%?} -le 20 ] && echo "#FF8000"
+dir="$HOME/.config/rofi/applets-squere"
+rofi_command="rofi -theme $dir/battery.rasi"
 
-exit 0
+## Get data
+BATTERY="$(acpi | awk -F ' ' '{print $4}' | tr -d \%,)"
+CHARGE="$(acpi | awk -F ' ' '{print $3}' | tr -d \,)"
+
+active=""
+urgent=""
+
+if [[ $CHARGE = *"Charging"* ]]; then
+    active="-a 1"
+    ICON_CHRG=""
+    MSG=$CHARGE
+elif [[ $CHARGE = *"Full"* ]]; then
+    active="-u 1"
+    ICON_CHRG=""
+    MSG=$CHARGE
+else
+    urgent="-u 1"
+    ICON_CHRG=""
+    MSG=$CHARGE
+fi
+
+# Discharging
+if [[ $BATTERY -ge 5 ]] && [[ $BATTERY -le 19 ]]; then
+    ICON_DISCHRG=""
+elif [[ $BATTERY -ge 20 ]] && [[ $BATTERY -le 39 ]]; then
+    ICON_DISCHRG=""
+elif [[ $BATTERY -ge 40 ]] && [[ $BATTERY -le 59 ]]; then
+    ICON_DISCHRG=""
+elif [[ $BATTERY -ge 60 ]] && [[ $BATTERY -le 79 ]]; then
+    ICON_DISCHRG=""
+elif [[ $BATTERY -ge 80 ]] && [[ $BATTERY -le 100 ]]; then
+    ICON_DISCHRG=""
+fi
+
+## Icons
+ICON_PMGR=""
+
+options="$ICON_DISCHRG\n$ICON_CHRG\n$ICON_PMGR"
+
+## Main
+chosen="$(echo -e "$options" | $rofi_command -p "$MSG $BATTERY%" -dmenu $active $urgent -selected-row 0)"
+case $chosen in
+    $ICON_CHRG)
+        ;;
+    $ICON_DISCHRG)
+        ;;
+    $ICON_PMGR)
+        plasma-open-settings
+        ;;
+esac
+

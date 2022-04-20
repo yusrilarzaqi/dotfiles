@@ -1,15 +1,22 @@
 ; Tokyonight
 
-background = #CC0F091F
-background-alt = #2e3440
+; background = #CC0F091F
+; background = #1F2335
+background = #E627283D
+background-alt = #3B4261
+; background-alt = #2e3440
+bg1 = #E63B4261
 
 foreground = #a9b1d6
 foreground-alt = #a9b1d6
 
-primary = #4ABAAF
+; primary = #5CB281
+primary = #7AA2F7
+; primary = #4ABAAF
 secondary = #e60053
 
-green = #9ECE6A
+; green = #9ECE6A
+green = #5CB281
 red = #F7768E
 yellow = #E0AF68
 alert = #bd2c40

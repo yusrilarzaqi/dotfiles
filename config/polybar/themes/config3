@@ -7,6 +7,9 @@
 ;     \|                                           \|          |/    
 
 
+
+
+
 [global/wm]
 margin-top = 0
 margin-bottom = 0
@@ -18,6 +21,9 @@ compositing-overline = true
 compositing-underline = over
 compositing-background = source
 compositing-border = over
+;pseudo-transparency = false
+
+
 
 [colors]
 include-file = $HOME/.dotfiles/config/polybar/colors
@@ -25,58 +31,60 @@ include-file = $HOME/.dotfiles/config/polybar/colors
 [bar/Top]
 ; monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 17
+height = 19
 offset-x = 0
 offset-y = 0
-radius = 0
+radius = 1
 radius-bottom = 0
 radius-top = 0
 fixed-center = true
 spacing = 0
 
-; background = ${colors.background}
-background = #00000000
-; background = #102a3b
+background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 0
+line-size = 1
 line-color = ${colors.background}
 
 ;border-size = 0
 border-top-size = 0
 border-left-size = 0
 border-right-size = 0
-border-bottom-size = 0
-border-color = #00000000
+border-color = ${colors.primary}
 
-overline-size = 0
+overline-size = 1
 overline-color = ${colors.background-alt}
 
 padding-left = 0
-padding-right = 0
+padding-right = 1
 
-module-margin-left = 0
-module-margin-right = 0
+module-margin-left = 1
+module-margin-right = 1
 
-font-0 = "TerminessTTF Nerd Font:pixelsize=9;1"
-font-1 = "JetBrainsMono Nerd Font:pixelsize=12;3"
+font-0 = "TeminessTTF Nerd Font Mono:pixelsize=9;1"
+font-1 = "JetBrainsMono Nerd Font:pixelsize=11;2"
 font-2 = "JetBrainsMono Nerd Font:pixelsize=9;2"
-font-3 = "Iosevka Nerd Font Mono:pixelsize=9;3"
-font-4 = "JetBrainsMono Nerd Font:pixelsize=13;3"
-font-5 = "Iosevka Nerd Font:pixelsize=14;4"
-font-6 = "Iosevka Nerd Font:pixelsize=20;5"
-font-7 = "TerminessTTF Nerd Font:pixelsize=10;2"
+font-3 = "Iosevka Nerd Font Mono:pixelsize=10;2"
+font-4 = "JetBrainsMono Nerd Font:pixelsize=14;1"
+font-5 = "JetBrainsMono Nerd Font:pixelsize=12;3"
 
-modules-left = menu i3 xwindow sep1 
-modules-center = 
-modules-right = xkeyboard temperature battery eth date 
+modules-left = i3 xwindow
+modules-center =
+modules-right = xkeyboard uptime pulseaudio temperature ram wlan eth battery date
 
 tray-position = right
-tray-padding = 0
-; tray-transparent = true
-tray-background = ${colors.background-alt}
+tray-padding = 2
+tray-transparent = true
+; Nord
+; tray-background = #CCE5E9F0
+; Tokyo Night
+tray-background = #CCa9b1d6
+; tray-background = ${colors.foreground}
+;
 
 wm-restack = i3
+
+override-redirect = false
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -93,39 +101,36 @@ fuzzy-match = true
 ; Only show workspaces on the same output as the bar
 pin-workspaces = true
 
-label-mode-padding = 0
+label-mode-padding = 1
 label-mode-foreground = ${colors.background}
-label-mode-background = ${colors.green}
+label-mode-background = ${colors.foreground}
 
 ; focused = Active workspace on focused monitor
-label-focused = "%{T4}%name%%{T-}"
-; label-focused = "%{T3}  %{T-}"
+; label-focused = "%{T3} %icon%  %{T-}"
+label-focused = "%{T3}  %{T-}"
 ; label-focused-background = ${colors.background-alt}
-label-focused-background = ${colors.green}
-label-focused-foreground = ${colors.background}
+; label-focused-background = ${colors.primary}
+; label-focused-foreground = ${colors.background-alt}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = "%{T4}%name%%{T-}"
-label-unfocused-background = ${colors.background}
-label-unfocused-foreground = ${colors.green}
-label-unfocused-padding = 1
+; label-unfocused = " %name% "
 ; label-unfocused = "%{T3} %icon% %{T-}"
 ; label-unfocused = "%{T3}  %{T-}"
-; label-unfocused = "%{T3}  %{T-}"
+label-unfocused = "%{T3}  %{T-}"
 ; label-unfocused-overline = ${colors.background-alt}
+label-unfocused-padding = 1
 
 ; visible = Active workspace on unfocused monitor
-label-visible = "%{T4}%name%%{T-}"
-; label-visible = "%{T3}  %{T-}"
-label-visible-background = ${self.label-focused-background}
-label-visible-padding = 1
+; label-visible = " %index% "
+label-visible = "%{T3}  %{T-}"
+; label-visible-background = ${self.label-focused-background}
+label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = "%{T4}%name%%{T-}"
-; label-urgent = "%{T3}  %{T-}" 
-label-urgent-foreground = ${colors.background}
-label-urgent-background = ${colors.red}
+; label-urgent = " %index% "
+label-urgent = "%{T3}  %{T-}"
+label-urgent-foreground = ${colors.alert}
 label-urgent-padding = 1
 
 ; Separator in between workspaces
@@ -151,23 +156,14 @@ ws-icon-5 = 6;
 [module/xwindow]
 type = internal/xwindow
 label = %title%
-label-maxlen = 160
-; label-empty = " ✖"
-label-empty = ""
-; label-empty-foreground = ${colors.red}
-; label-empty = " "
+label-maxlen = 90
+label-empty = "✖"
 
-format = %{T8}<label>%{T-}
-; format-prefix = " "
-format-prefix = "█"
-format-prefix-foreground = ${colors.background}
-format-prefix-background = #00000000
-format-prefix-font = 6
-
-format-foreground = ${colors.green}
-format-background = ${colors.background}
-format-padding = 0
-; format-font = 4
+format = <label>
+; format-underline = ${colors.primary}
+; format-foreground = ${colors.foreground}
+; format-background = ${colors.background}
+format-padding = 1
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -189,10 +185,10 @@ label-layout = %icon%
 ; Default: %name%
 ; @deprecated, use label-indicator-on
 ; label-indicator = %name%
-label-indicator-padding = 0
-label-indicator-margin = 0
-; label-indicator-background = ${colors.foreground}
-; label-indicator-foreground = ${colors.background}
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.foreground}
+label-indicator-foreground = ${colors.background}
 ; label-indicator-overline = ${colors.secondary}
 
 ; format-prefix = "%{T2}%{T-}"
@@ -208,18 +204,33 @@ format-spacing = 0
 ; NORD
 ; label-indicator-on-capslock = %{T2 F#e5e9f0 B#4C566A}  %{T4 F#2e3440 B#CCE5E9F0} %name% %{T- F- B-}
 ; Tokyo Night
-; label-indicator-on-capslock = "%{T2 F#020E1d B#5CB281}  %{T4 F#a9b1d6 B#3B4261} %name% %{T- F- B-}"
-; label-indicator-on-capslock = "%{B#00000000 F#5CB281 T5}%{T2 F#020e1d B#5CB281}  %{T4 F#a9b1d6 B#3B4261} %name% %{T- F- B-}"
-label-indicator-on-capslock = "%{B#00000000 F#5CB281 T2}█%{T2 F#020e1d B#5CB281}  %{B#3B4261 F-}█%{T- B-}"
-label-indicator-off-capslock = %{B#00000000 F#5CB281 T2}█%{B#5CB281 F#3B4261}█%{B#3B4261 F-}█%{B- T-}
-; label-indicator-on-capslock = "%{B#E627283D F#5CB281 T2}%{T2 F#020e1d B#5CB281}  %{T- F- B-}"
-; label-indicator-off-capslock = %{B#E627283D F#5CB281 T2}%{B#5CB281 F#3B4261}█%{B#3B4261 F-}█%{B- T-}
+label-indicator-on-capslock = %{T2 F#020E1d B#4e5173}  %{T4 F#020E1d B#CCa9b1d6} %name% %{T- F- B-}
+label-indicator-off-capslock = ""
 ; label-indicator-on-scrolllock =
 ; label-indicator-off-scrolllock =
 
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = ""
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #cf876f
+label = %percentage:2%%
+
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = wlan0
 interval = 1.0
 
 
@@ -286,24 +297,8 @@ interval = 1
 ; date-alt = "%{T2 B#E977FE F#2e3440}   %{T4 B#CCE5E9F0 F#2e3440} %A, %d %m %y %{T- B- F-}"
 ; time = "%{T2 B#E977FE F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} %I:%M:%S %p %{T- B- F-}"
 ; Tokyo Night
-; date-alt = "%{T2 B#AD61E0 F#020E1d}   %{T4 B#CCa9b1d6 F#020E1d} %A, %d %m %y %{T- B- F-}"
-; time = "%{T2 B#AD61E0 F#020E1d}  %{T4 B#CCa9b1d6 F#020E1d} %I:%M:%S %p %{T- B- F-}"
-; date-alt = "%{T2 B#adb1d1 F#020E1d}   %{T4 B#3B4261 F#a9b1d6} %A, %d %m %y %{T- B- F-}"
-; time = "%{T2 B#adb1d1 F#020E1d}  %{T4 B#3B4261 F#a9b1d6} %I:%M:%S %p %{T- B- F-}"
-; date-alt = "%{T2 B#5CB281 F#020E1d}   %{T4 B#3B4261 F#a9b1d6} %A, %d %m %y %{T- B- F-}"
-; time = "%{T2 B#5CB281 F#020E1d}  %{T4 B#3B4261 F#a9b1d6} %I:%M:%S %p %{T- B- F-}"
-date-alt = "%{T4} %A, %d %m %Y %{T-}"
-time = "%{T4} %I:%M:%S %p %{T-}"
-format-background = #3B4261
-format-foreground = ${colors.green}
-; format-font = 4
-
-
-format-prefix = "  "
-format-prefix-padding = 0
-format-prefix-font = 2
-format-prefix-foreground = #020E1D
-format-prefix-background = ${colors.green}
+date-alt = "%{T2 B#AD61E0 F#020E1d}   %{T4 B#CCa9b1d6 F#020E1d} %A, %d %m %y %{T- B- F-}"
+time = "%{T2 B#AD61E0 F#020E1d}  %{T4 B#CCa9b1d6 F#020E1d} %I:%M:%S %p %{T- B- F-}"
 
 format = <label> 
 
@@ -311,7 +306,6 @@ label = %time% %date%
 
 [module/pulseaudio]
 type = internal/pulseaudio
-padding = 0
 
 ; Available tokens:
 ;   %percentage% (default)
@@ -330,8 +324,7 @@ label-volume = %percentage%%
 ; format-volume = %{T2 B#81a1c1 F#2e3440} <ramp-volume> %{T4 B#CCE5E9F0 F#2e3440} <label-volume> %{T- B- F-}
 ; label-volume-foreground = ${colors.foreground-alt}
 ; Tokyo Night
-; format-volume = %{T2 B#7AA2f7 F#020E1d} <ramp-volume> %{T4 B#CCa9b1d6 F#020E1d} <label-volume> %{T- B- F-}
-format-volume = %{T2 B#5CB281 F#020E1d} <ramp-volume> %{T4 B#3B4261 F#a9b1d6} <label-volume> %{T- B- F-}
+format-volume = %{T2 B#7AA2f7 F#020E1d} <ramp-volume> %{T4 B#CCa9b1d6 F#020E1d} <label-volume> %{T- B- F-}
 
 ; Available tokens:
 ;   %percentage% (default)
@@ -342,16 +335,7 @@ format-volume = %{T2 B#5CB281 F#020E1d} <ramp-volume> %{T4 B#3B4261 F#a9b1d6} <l
 ; Nord
 ; label-muted = "%{T2 B#bf616a F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} muted %{T- B- F-}"
 ; Tokyo Night
-; label-muted = "%{T2 B#f7768e F#020E1d}  %{T4 B#CCa9b1d6 F#020E1d} muted %{T- B- F-}"
-; label-muted = "%{T2 B#f7768e F#020E1d}  %{T4 B#3B4261 F#a9b1d6} muted %{T- B- F-}"
-label-muted = "%{T4} muted %{T-}"
-; format-prefix-muted = 
-format-muted = "<label-muted>"
-format-muted-prefix = " 婢 "
-format-muted-prefix-font = 2
-format-muted-prefix-foreground = #020e1d
-format-muted-prefix-background = ${colors.green}
-format-muted-background = #3B4261
+label-muted = "%{T2 B#f7768e F#020E1d}  %{T4 B#CCa9b1d6 F#020E1d} muted %{T- B- F-}"
 
 ; Only applies if <ramp-volume> is used
 ramp-volume-0 = 
@@ -395,12 +379,10 @@ full-at = 99
 ; format-charging =  "%{T4 B#2e3440 F#eceff4}<label-charging> %{T5} <animation-charging> %{T- B- F-}" 
 ; format-charging =  "%{T4 B#eceff4 F#2e3440}<label-charging> %{T5}<animation-charging> %{T- B- F-}" discharging
 ; Tokyo Night
-; label-charging = %{T3 B#f7768e F#020E1d}   %{T4 B#CCa9b1d6 F#020E1d} %percentage%% %{T- B- F-}
-; format-charging =  "%{T4 B#020E1d F#CCa9b1d6}<label-charging> %{T5} <animation-charging> %{T- B- F-}" 
-; label-charging = %{T3 B#f7768e F#020E1d}   %{T4 B#3B4261 F#a9b1d6} %percentage%% %{T- B- F-}
-; format-charging =  "%{T4 B#020E1d F#CCa9b1d6}<label-charging> %{T- B- F-}" 
-label-charging =    %percentage%%
-format-charging =  "%{T5 B#5CB281 F#020E1d} <animation-charging> %{T4 B#3B4261 F#5CB281} <label-charging> %{T- B- F-}"
+label-charging = %{T3 B#f7768e F#020E1d}   %{T4 B#CCa9b1d6 F#020E1d} %percentage%% %{T- B- F-}
+format-charging =  "%{T4 B#020E1d F#CCa9b1d6}<label-charging> %{T5} <animation-charging> %{T- B- F-}" 
+
+
 
 ; Discharging
 ; Gruvbox
@@ -410,14 +392,12 @@ format-charging =  "%{T5 B#5CB281 F#020E1d} <animation-charging> %{T4 B#3B4261 F
 ; label-discharging = %{T2 B#bf616a F#2e3440}  %{T4 B#CCE5E9F0 F#2e3440} %percentage%% %{B- T-}
 ; format-discharging = "%{T4 B#2e3440 F#eceff4}<label-discharging> %{T5}<ramp-capacity>%{T- B- F-}   "
 ; Tokyo Night
-; label-discharging = %{T2 B#f7768e F#020E1d}  %{T4 B#CCa9b1d6 F#020E1d} %percentage%% %{B- T- F-}
-; label-discharging = %{T2 B#f7768e F#020E1d}  %{T4 B#3B4261 F#a9b1d6} %percentage%% %{B- T- F-}
-label-discharging =   %percentage%% 
+label-discharging = %{T2 B#f7768e F#020E1d}  %{T4 B#CCa9b1d6 F#020E1d} %percentage%% %{B- T- F-}
 
-format-discharging = "%{T2 B#5CB281 F#020E1d} <ramp-capacity> %{T4 B#3B4261 F#5CB281} <label-discharging> %{T- B- F-}"
+format-discharging = "<label-discharging>"
 
-label-full = %{T2 B#5CB281 F#020E1d}  %{T4 B#3B4261 F#5CB281} %percentage%% %{B- T- F-}
-format-full =  <label-full> 
+format-full = %{T4 B#CCa9b1d6 F#020E1d} <label-full> %{T- B- F-}
+; format-full-overline = ${colors.green}
 
 ;ramp capacity foreground
 ; ramp-capacity-0 =  
@@ -425,17 +405,17 @@ format-full =  <label-full>
 ; ramp-capacity-2 = 
 ; ramp-capacity-3 = 
 ; ramp-capacity-4 = 
-; ramp-capacity-0-foreground = ${colors.alert}
-; ramp-capacity-1-foreground = ${colors.alert}
-; ramp-capacity-2-foreground = ${colors.red}
-; ramp-capacity-3-foreground = ${colors.red}
-; ramp-capacity-4-foreground = ${colors.yellow}
-; ramp-capacity-5-foreground = ${colors.yellow}
-; ramp-capacity-6-foreground = ${colors.primary}
-; ramp-capacity-7-foreground = ${colors.primary}
-; ramp-capacity-8-foreground = ${colors.green}
-; ramp-capacity-9-foreground = ${colors.green}
-; ramp-capacity-10-foreground = ${colors.green}
+ramp-capacity-0-foreground = ${colors.alert}
+ramp-capacity-1-foreground = ${colors.alert}
+ramp-capacity-2-foreground = ${colors.red}
+ramp-capacity-3-foreground = ${colors.red}
+ramp-capacity-4-foreground = ${colors.yellow}
+ramp-capacity-5-foreground = ${colors.yellow}
+ramp-capacity-6-foreground = ${colors.primary}
+ramp-capacity-7-foreground = ${colors.primary}
+ramp-capacity-8-foreground = ${colors.green}
+ramp-capacity-9-foreground = ${colors.green}
+ramp-capacity-10-foreground = ${colors.green}
 
 ; ramp-capacity icon
 ramp-capacity-0 = 
@@ -449,8 +429,6 @@ ramp-capacity-7 = 
 ramp-capacity-8 = 
 ramp-capacity-9 = 
 ramp-capacity-10 = 
-ramp-capacity-font = 5
-ramp-capacity-foreground = ${colors.background}
 
 ; Animation Charging icon
 ; OLD
@@ -460,41 +438,25 @@ ramp-capacity-foreground = ${colors.background}
 ; animation-charging-3 = 
 ; animation-charging-4 = 
 ; NEW
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
-animation-charging-7 = 
-animation-charging-8 = 
-animation-charging-9 = 
-animation-charging-10 = 
-animation-charging-font = 5
-animation-charging-foreground = ${colors.background}
-animation-charging-framerate = 750
-
-; animation-charging-0 =  
-; animation-charging-1 = 
-; animation-charging-2 =  
-; animation-charging-3 =  
-; animation-charging-4 = 
-; animation-charging-5 = 
-; animation-charging-6 =  
-; animation-charging-7 = 
+animation-charging-0 =  
+animation-charging-1 = 
+animation-charging-2 =  
+animation-charging-3 =  
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 =  
+animation-charging-7 = 
 
 ; Animation Charging Foreground
-; animation-charging-0-foreground = ${colors.alert}
-; animation-charging-1-foreground = ${colors.red}
-; animation-charging-2-foreground = ${colors.orange}
-; animation-charging-3-foreground = ${colors.orange}
-; animation-charging-4-foreground = ${colors.yellow}
-; animation-charging-5-foreground = ${colors.primary}
-; animation-charging-6-foreground = ${colors.green}
-; animation-charging-7-foreground = ${colors.green}
-; animation-charging-foreground = ${colors.background}
-; animation-charging-framerate = 750
+animation-charging-0-foreground = ${colors.alert}
+animation-charging-1-foreground = ${colors.red}
+animation-charging-2-foreground = ${colors.orange}
+animation-charging-3-foreground = ${colors.orange}
+animation-charging-4-foreground = ${colors.yellow}
+animation-charging-5-foreground = ${colors.primary}
+animation-charging-6-foreground = ${colors.green}
+animation-charging-7-foreground = ${colors.green}
+animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
@@ -510,11 +472,8 @@ warn-temperature = 60
 ; format = %{T2 B#d08770 F#2e3440} <ramp> %{T4 B#CCE5E9F0 F#2e3440} <label> %{T- B- F-}
 ; format-warn = %{T2 B#bf616a F#2e3440} <ramp> %{T4 B#CCE5E9F0 F#2e3440} <label-warn> %{T- B- F-}
 ; Tokyo Night
-; format = %{T2 B#d08770 F#020E1d} <ramp> %{T4 B#CCa9b1d6 F#020E1d} <label> %{T- B- F-}
-; format-warn = %{T2 B#f7768e F#020E1d} <ramp> %{T4 B#CCa9b1d6 F#020E1d} <label-warn> %{T- B- F-}
-format = %{T2 B#5CB281 F#020E1d} <ramp> %{T4 B#3B4261 F#5CB281} <label> %{T- B- F-}
-format-warn = %{T2 B#5CB281 F#020E1d} <ramp> %{T4 B#d61b1b F#dfdfdf} <label-warn> %{T- B- F-}
-; format-warn = %{T2 B#f7768e F#020E1d} <ramp> %{T4 B#3B4261 F#a9b1d6} <label-warn> %{T- B- F-}
+format = %{T2 B#d08770 F#020E1d} <ramp> %{T4 B#CCa9b1d6 F#020E1d} <label> %{T- B- F-}
+format-warn = %{T2 B#f7768e F#020E1d} <ramp> %{T4 B#CCa9b1d6 F#020E1d} <label-warn> %{T- B- F-}
 
 label = %temperature-c%
 label-warn = %temperature-c%
@@ -547,47 +506,6 @@ exec = $HOME/.dotfiles/config/polybar/myScript/uptime.sh
 ; format = %{T4 F#2e3440 B#CCE5E9F0} <label> %{T- F- B-}
 format = %{T4 F#020E1D B#CCa9b1d6} <label> %{T- F- B-}
 format-padding = 1
-
-[module/menu]
-type = custom/text
-content = "   "
-content-font = 2
-content-padding = 0
-content-background = ${colors.background}
-content-foreground = ${colors.green}
-click-left = rofi -show drun -theme ~/.config/rofi/themes/nord.rasi
-click-right = rofi -show run -theme ~/.config/rofi/themes/nord.rasi
-
-[module/powermenu]
-type = custom/text
-
-content = "  "
-content-font = 2
-content-padding = 0
-content-background = ${colors.bg1}
-content-foreground = ${colors.red}
-click-left = 
-
-[module/sep1]
-type = custom/text
-
-content = "█"
-; content = "█"
-content-font = 6
-content-padding = 0
-; content-background = ${colors.green}
-content-foreground = ${colors.background}
-
-[module/sep2]
-type = custom/text
-
-content = ""
-; content = " "
-content-font = 6
-content-padding = 0
-; content-background = #00000000
-content-background = ${colors.background-alt}
-content-foreground = ${colors.green}
 
 
 
