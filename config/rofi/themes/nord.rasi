@@ -1,0 +1,107 @@
+/*
+ * ROFI color theme
+ *
+ * Based on Something Found in the Internet
+ *
+ * User: Contributors
+ * Copyright: *!
+ */
+
+configuration {
+  font: "JetBrainsMono Nerd Font 10";
+
+  drun {
+    display-name: "";
+  }
+
+  run {
+    display-name: "";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+}
+
+* {
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  /* bg: #2E3440; */
+  /* bg-alt: #3B4252; */
+  /* fg: #81A1C1; */
+  /* fg-alt: #EBCB8B; */
+  /* bg-alt: #3B4261; */
+
+  bg: #27283D;
+  bg-alt: #5CB281;
+  fg: #FFFBF7;
+  fg-alt: #5CB281;
+  gray: #21273d;
+
+
+  background-color: @bg;
+  text-color: @fg;
+  border-color: @bg;
+
+  width: 290px;
+}
+
+window {
+  transparency: "real";
+  location: northwest;
+  x-offset: 0px;
+  y-offset: 20px;
+}
+
+mainbox {
+  children: [inputbar, listview];
+  background-color: @bg-alt;
+}
+
+inputbar {
+  background-color: @bg-alt;
+  children: [prompt, entry];
+}
+
+entry {
+  background-color: inherit;
+  /* background-color: @bg-alt; */
+  text-color:       @bg;
+  padding:          12px 3px;
+}
+
+prompt {
+  background-color: inherit;
+  text-color:       @bg;
+  /* background-color: @bg-alt; */
+  padding:          12px;
+}
+
+listview {
+  lines: 13;
+}
+
+element {
+  children: [element-icon, element-text];
+}
+
+element-icon {
+  padding: 0px 10px;
+}
+
+element-text {
+  padding: 10px 0;
+}
+
+element-text selected {
+  text-color: @fg-alt;
+  background-color: @gray;
+}

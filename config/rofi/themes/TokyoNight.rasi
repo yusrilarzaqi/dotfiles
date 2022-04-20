@@ -7,27 +7,28 @@
 
 /* global settings and color variables */
 * {
-    maincolor:        #50fa7b;
-    highlight:        bold #50fa7b;
-    urgentcolor:      #ff79c6;
+    maincolor:        #7AA2F7;
+    highlight:        bold #4abaaf;
+    urgentcolor:      #f7768e;
 
-    fg:               #f8f8f2;
-    bg:               #282a36;
-    blackselect:      #44475a;
-    cyan:             #8be9fd;
+    bg:               #020E1d;
+    fg:               #a9b1d6;
+    blackselect:      #1d1b26;
+    cyan:             #4abaaf;
     font: "SauceCodePro Nerd Font Black 12";
     background-color: @bg;
     show-icons: true;
-    icon-theme: "Pop";
+    icon-theme: "Papirus";
 }
 
 window {
     background-color: @bg;
-    border:           0;
-    padding:          0;
+    border:           3;
+    border-color:     @maincolor;
+    padding:          100;
     anchor:           north;
     location:         north;
-    y-offset:         0%;
+    y-offset:         5%;
 }
 
 mainbox {
@@ -47,21 +48,21 @@ textbox {
 }
 
 listview {
-    fixed-height: false;
+    fixed-height: true;
     dynamic: true;
-    scrollbar: true;
+    scrollbar: false;
     spacing: 0px;
     padding: 1px 0px 0px 0px;
-    margin: 0px 0px 1px 0px;
+    margin: 0px 0px 10px 0px;
     background: @bg;
 }
 
 element {
-    padding: 2px 15px;
+    padding: 1px 15px;
 }
 
 element normal.normal {
-    padding: 0px 15px;
+    padding: 1px 15px;
     background-color: @bg;
     text-color: @fg;
 }
@@ -79,6 +80,8 @@ element normal.active {
 element selected.normal {
     background-color: @blackselect;
     text-color:       @fg;
+    border: 1px;
+    border-color: @maincolor;
 }
 
 element selected.urgent {
@@ -89,6 +92,7 @@ element selected.urgent {
 element selected.active {
     background-color: @maincolor;
     text-color:       @bg;
+    padding: 5px 15px;
 }
 
 element alternate.normal {
@@ -109,7 +113,7 @@ element alternate.active {
 scrollbar {
     background-color: @bg;
     handle-color: @cyan;
-    handle-width: 15px;
+    handle-width: 2px;
 }
 
 mode-switcher {

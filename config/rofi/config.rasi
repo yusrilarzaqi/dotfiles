@@ -7,27 +7,31 @@
 
 /* global settings and color variables */
 * {
-    maincolor:        #50fa7b;
-    highlight:        bold #50fa7b;
-    urgentcolor:      #ff79c6;
+    /* maincolor:        #7AA2F7; */
+    maincolor:        #5CB281;
+    highlight:        #4abaaf;
+    urgentcolor:      #f7768e;
 
-    fg:               #f8f8f2;
-    bg:               #282a36;
-    blackselect:      #44475a;
-    cyan:             #8be9fd;
-    font: "SauceCodePro Nerd Font Black 12";
+    bg:               #27283D;
+    fg:               #d1e9da;
+    blackselect:      #3B4261;
+    cyan:             #5CB281;
+    font:             "JetBrainsMono Nerd Font 11";
     background-color: @bg;
-    show-icons: true;
-    icon-theme: "Pop";
+    show-icons:       true;
+    icon-theme:       "Papirus";
 }
 
 window {
     background-color: @bg;
-    border:           0;
+    border:           1;
+    border-color:     @fg;
     padding:          0;
-    anchor:           north;
+    width:            300px;
+    /* anchor:           center; */
     location:         north;
-    y-offset:         0%;
+    y-offset:         30px;
+    x-offset:         -520px;
 }
 
 mainbox {
@@ -37,31 +41,31 @@ mainbox {
 }
 
 message {
-    padding: 6px 10px;
+    padding:         6px 10px;
     background-color:@bg;
 }
 
 textbox {
-    text-color:@cyan;
+    text-color:     @cyan;
     background-color:@bg;
 }
 
 listview {
-    fixed-height: false;
+    fixed-height: true;
     dynamic: true;
-    scrollbar: true;
+    scrollbar: false;
     spacing: 0px;
     padding: 1px 0px 0px 0px;
-    margin: 0px 0px 1px 0px;
+    margin: 0px 0px 10px 0px;
     background: @bg;
 }
 
 element {
-    padding: 2px 15px;
+    padding: 1px 15px;
 }
 
 element normal.normal {
-    padding: 0px 15px;
+    padding: 1px 15px;
     background-color: @bg;
     text-color: @fg;
 }
@@ -72,23 +76,26 @@ element normal.urgent {
 }
 
 element normal.active {
-    background-color: @bg;
+    background-color: @urgentcolor;
     text-color: @maincolor;
 }
 
 element selected.normal {
     background-color: @blackselect;
-    text-color:       @fg;
+    text-color:       @cyan;
+    border: 0px;
+    border-color: @maincolor;
 }
 
 element selected.urgent {
     background-color: @urgentcolor;
-    text-color:       @bg;
+    text-color:       @fg;
 }
 
 element selected.active {
     background-color: @maincolor;
-    text-color:       @bg;
+    text-color:       @fg;
+    padding: 5px 15px;
 }
 
 element alternate.normal {
@@ -106,12 +113,6 @@ element alternate.active {
     text-color:       @maincolor;
 }
 
-scrollbar {
-    background-color: @bg;
-    handle-color: @cyan;
-    handle-width: 15px;
-}
-
 mode-switcher {
     background-color: @bg;
 }
@@ -122,7 +123,8 @@ button {
 }
 
 button selected {
-    text-color:       @maincolor;
+    text-color:       @fg;
+    background-color: @bg;
 }
 
 inputbar {

@@ -1,0 +1,130 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+
+configuration {
+	font:                      		"JetBrainsMono Nerd Font 14";
+  disable-history:              true;
+  fullscreen:                   false;
+	hide-scrollbar: 				      true;
+	sidebar-mode: 					      false;
+}
+
+@import "../colors/tokyonight.rasi"
+
+* {
+    background-color:               @bg;
+    text-color:                     @fg;
+}
+
+window {
+    transparency:                   "real";
+    border-radius:                  6px;
+    location:                       northeast;
+    width:                       	  460px;
+    /* position: northeast; */
+    x-offset:                       -30px;
+    y-offset:                       30px;
+    border:                         1px;
+}
+
+prompt {
+    enabled: 						            true;
+    padding:                        10px;
+	  background-color: 				      @bg;
+	  text-color: 					          @blue;
+    border:                  		    1px 1px 0px 0px;
+    border-radius:                  0px;
+    border-color:                  	@blue;
+}
+
+textbox-prompt-colon {
+	expand: 						      false;
+	str: 							        "Network";
+	background-color: 				@blue;
+	text-color: 				  	  @bg;
+  padding:                  10px 10px 0px 10px;
+  /* padding:                  0px 0px 0px 0px; */
+}
+
+inputbar {
+	  children: 						[ textbox-prompt-colon, prompt ];
+    spacing:                        0px;
+    background-color:               @bg;
+    text-color:                     @fg;
+    expand:                         false;
+    border:                  		    0px;
+    border-radius:                  0px;
+    border-color:                  	@blue;
+    margin:                         0px 0px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+listview {
+    columns:						            4;
+    lines:							            1;
+    spacing:                        3px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @bg;
+    children:                       [ inputbar, listview ];
+    spacing:                        10px;
+    margin:                         20px;
+}
+
+element {
+    background-color:               @purple;
+    text-color:                     @select;
+    orientation:                    vertical;
+    border-radius:                  0px;
+}
+
+element-text {
+	  font:							              "JetBrainsMono Nerd Font 22";
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0;
+    /* margin:                         25px 0px 65px 0px; */
+    margin:                         0px 0px 37px 0px;
+}
+
+element normal.urgent,
+element alternate.urgent {
+    background-color:               @red;
+    text-color:                     @bg;
+    border-radius:                  0px;
+}
+
+element normal.active,
+element alternate.active {
+    background-color:               @green;
+    text-color:                     @bg;
+}
+
+element selected {
+    background-color:               @blue;
+    text-color:                     @bg;
+    border:                  		    0px;
+    border-radius:                  0px;
+    border-color:                  	@border;
+}
+
+element selected.urgent {
+    background-color:               @green;
+    text-color:                     @bg;
+}
+
+element selected.active {
+    background-color:               @red;
+    color:                          @bg;
+}
