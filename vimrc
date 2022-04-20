@@ -9,4 +9,3 @@ source $HOME/.vim/init/keymap.vim    " My Configuration Keymap
 source $HOME/.vim/init/startify.vim  " Startify Configuration
 source $HOME/.vim/init/commentary.vim " mapping for commentary
 source $HOME/.vim/init/gitgutter.vim  " Configuration gitgutter
-source $HOME/.vim/init/nord.vim       " Configuration color shecme nord

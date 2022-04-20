@@ -1,20 +1,72 @@
 {
-  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+	"clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
 
-  "emmet.includeLanguages" : {
-    "javascript": "javascriptreact"
-  },
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
 
-  "coc.preferences.formatOnSaveFiletypes": ["css", "javascript", "graphql", "html", "yaml",  "json", "python", "php"],
-  "prettier.tabWidth": 2,
-  "prettier.useTabs": true,
+	"coc.preferences.formatOnSaveFiletypes": [
+		"css",
+		"javascript",
+		"graphql",
+		"html",
+		"yaml",
+		"json",
+		"python",
+		"php"
+	],
 
-  // python config
-  "python.linting.enabled": true,
-  "python.linting.pylintEnabled": true,
+	// Prettier
+	"prettier.tabWidth": 2,
+	"prettier.semi": true,
+	"prettier.enable": true,
+	"prettier.useTabs": true,
+	"prettier.endOfLine": "lf",
+	"prettier.bracketSpacing": true,
 
-  // Snippet
-  "snippets.extends": {
-    "php" : ["html"]
-  }
+	// python config
+	"python.linting.enabled": true,
+	"python.linting.pylintEnabled": true,
+	"python.linting.pep8Enabled": true,
+	"python.jediEnabled": true,
+	"python.jediShortcut": "JD",
+
+	"jedi.enable": true,
+	"jedi.startupMessage": false,
+	"jedi.markupKindPreferred": "plaintext",
+	"jedi.trace.server": "off",
+	"jedi.jediSettings.autoImportModules": [],
+	"jedi.jediSettings.caseInsensitiveCompletion": true,
+	"jedi.jediSettings.debug": false,
+	"jedi.executable.command": "jedi-language-server",
+	"jedi.executable.args": [],
+	"jedi.codeAction.nameExtractFunction": "jls_extract_def",
+	"jedi.codeAction.nameExtractVariable": "jls_extract_var",
+	"jedi.completion.disableSnippets": false,
+	"jedi.completion.resolveEagerly": false,
+	"jedi.completion.ignorePatterns": [],
+	"jedi.diagnostics.enable": true,
+	"jedi.diagnostics.didOpen": true,
+	"jedi.diagnostics.didChange": true,
+	"jedi.diagnostics.didSave": true,
+	"jedi.hover.enable": true,
+	"jedi.hover.disable.keyword.all": false,
+	"jedi.hover.disable.keyword.names": [],
+	"jedi.hover.disable.keyword.fullNames": [],
+	"jedi.workspace.extraPaths": [],
+	"jedi.workspace.symbols.maxSymbols": 20,
+	"jedi.workspace.symbols.ignoreFolders": [
+		".nox",
+		".tox",
+		".venv",
+		"__pycache__",
+		"venv"
+	],
+
+	// Snippet
+	"snippets.extends": {
+		"php": ["html"]
+	},
+	"snippets.ultisnips.enable": true,
+	"intelephense.format.enable": true
 }

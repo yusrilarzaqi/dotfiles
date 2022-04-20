@@ -21,7 +21,8 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-
+nnoremap <c-s> :w<CR>
+inoremap <c-s> <ESC>:w<CR>a
 map <C-x> :ter <return>
 vnoremap <C-c> "+y
 map <C-p> "+P

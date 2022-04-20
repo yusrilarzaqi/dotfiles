@@ -17,5 +17,5 @@ let g:NERDTreeGitStatusShowClean = 1
 let g:NERDTreeGitStatusUntrackedFilesMode = 'all'
 let NERDTreeQuitOnOpen=1
 
-" Open Nerd tree
+" Toggle Nerd tree
 map <C-n> :NERDTreeToggle<CR>

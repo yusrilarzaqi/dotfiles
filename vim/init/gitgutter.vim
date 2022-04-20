@@ -4,7 +4,7 @@ highlight GitGutterDelete guifg=#bf616a ctermfg=3
 
 let g:gitgutter_set_sign_backgrounds = 1
 let g:gitgutter_enabled = 1
-let g:gitgutter_map_keys = 0
+let g:gitgutter_map_keys = 1
 let g:gitgutter_sign_allow_clobber = 1
 let g:gitgutter_highlight_linenrs = 1
 

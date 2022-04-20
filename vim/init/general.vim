@@ -3,6 +3,8 @@ set termguicolors
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
 let g:tokyonight_transparent_background = 1
+let g:tokyonight_menu_selection_background = 'green'
+let g:tokyonight_current_word = 'underline'
 
 colorscheme tokyonight
 
@@ -25,6 +27,7 @@ set ttyfast
 set t_co=256
 set shell=/usr/bin/fish
 set expandtab
+set backspace=2
 
 " Set tab width to 2 columns.
 set tabstop=2
@@ -90,9 +93,9 @@ set shortmess+=c
 "let g:markdown_syntax_connceal = 0
 
 " Set Cursor 
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_SR = "\<Esc>]50;CursorShape=2\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+" let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+" let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+" let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
@@ -103,14 +106,11 @@ filetype on
 " Enable plugins and load plugin for the detected file type.
 filetype plugin on
 
-" Load an indent file for the detected file type.
-filetype indent on
-
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
 
 " Makes popup menu smaller
-set pumheight=10
+" set pumheight=10
 
 " Horizontal splits will automatically be below
 set splitbelow
@@ -125,7 +125,11 @@ set conceallevel=0
 set laststatus=0
 
 " Automaticy restart when write polybar, i3 configuration
-autocmd BufWritePost config :!i3 restart
+" autocmd BufWritePost config :!i3 restart
+
+" Auto format .php files
+autocmd BufWritePre *.php PrettierAsync
+
 
 
 
