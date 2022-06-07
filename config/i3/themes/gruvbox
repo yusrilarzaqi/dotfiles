@@ -1,0 +1,11 @@
+############ GRUVBOX ############
+set $background         #282828
+set $background-alt     #3c3836
+set $foreground         #ebdbb4
+set $foreground-alt     #a89984
+set $main_color #fe8019
+set $blue       #389aac
+set $red        #FB4934
+set $green      #7bb75b
+set $orange     #ff8700
+set $gray       #282828
