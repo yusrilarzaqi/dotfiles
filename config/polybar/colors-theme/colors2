@@ -1,0 +1,36 @@
+; Tokyonight
+
+; background = #CC0F091F
+; background = #1F2335
+; background = #E627283D
+; background = #AC3c474d
+background = #CC3b4252
+background-alt = #2e3440
+; background-alt = #3B4261
+; background-alt = #2e3440
+
+foreground = #a9b1d6
+foreground-alt = #a9b1d6
+
+; primary = #5CB281
+; primary = #4ABAAF
+primary = #81a1c1
+primary-bg = #CC81a1c1
+secondary = #e60053
+
+; green = #9ECE6A
+; green = #5CB281
+green = #ACa7c080
+green-fg = #a7c080
+; red = #F776jine
+red = #bf616a
+; red = #ACe67e80
+red-bg = #CCbf616a
+
+yellow = #e0af68
+alert = #bd2c40
+orange = #AC834B
+
+
+
+; vim:ft=dosini
