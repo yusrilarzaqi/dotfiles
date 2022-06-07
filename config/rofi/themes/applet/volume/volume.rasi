@@ -1,0 +1,119 @@
+configuration {
+	font:                      		"JetBrainsMono Nerd Font 12";
+  disable-history:              false;
+  fullscreen:                   false;
+	hide-scrollbar: 				      true;
+	sidebar-mode: 					      false;
+}
+
+@import "../colors.rasi"
+
+* {
+  background-color:             @al;
+  text-color:                   @fg;
+}
+
+window {
+  transparency:                 "real";
+  border-radius:                4px;
+  location:                     northeast;
+	width:							          250px;
+  x-offset:                     -10px;
+  y-offset:                     25px;
+  background-color:@bg;
+}
+
+prompt {
+  enabled: 						          true;
+  padding:                      10px;
+	background-color: 				    @ac;
+	text-color: 					        @fg-dark;
+  border:                  		  2px 2px 2px 2px;
+  border-radius:                4px;
+  border-color:                 @ac;
+}
+
+textbox-prompt-colon {
+	expand: 						          false;
+	str: 							            " Volume ";
+	background-color: 				    @ac;
+	text-color: 					        @fg-dark;
+  padding:                      10px 10px 0px 10px;
+  border-radius:                4px;
+}
+
+inputbar {
+	children: 						        [ textbox-prompt-colon, prompt ];
+  spacing:                      30;
+  background-color:             @al;
+  /* text-color:                   @fg; */
+  expand:                       false;
+  border:                  		  0px;
+  border-radius:                0px;
+  border-color:                 @ac;
+  margin:                       0px 0px 0px 0px;
+  padding:                      0px;
+  position:                     center;
+}
+
+listview {
+  columns:						          4;
+  lines:							          1;
+  spacing:                      12px;
+  cycle:                        true;
+  dynamic:                      true;
+  layout:                       vertical;
+}
+
+mainbox {
+  background-color:             @al;
+  children:                     [ inputbar, listview ];
+  spacing:                      12px;
+  margin:                       12px;
+}
+
+element {
+  children:                     [ element-text ];
+  background-color:             @al;
+  orientation:                  vertical;
+  border-radius:                4px;
+}
+
+element-text {
+  text-color:                   @fg;
+	font:							            "JetBrainsMono Nerd Font 20";
+  expand:                       true;
+  horizontal-align:             0.5;
+  vertical-align:               0.5;
+  /* margin:                       1px 1px 1px 1px; */
+  border:                       2px;
+  border-radius:                4px;
+}
+
+element-text normal.urgent,
+element-text alternate.urgent {
+  background-color:             @off;
+  text-color:                   @fg-dark;
+}
+
+element-text normal.active,
+element-text alternate.active {
+  background-color:             @on;
+  text-color:                   @fg-dark;
+}
+
+element-text selected {
+  background-color:             @ac;
+  text-color:                   @fg-dark;
+  border-radius:                4px;
+}
+
+element-text selected.urgent {
+  background-color:             @on;
+  text-color:                   @fg-dark;
+}
+
+element-text selected.active {
+  background-color:             @off;
+  color:                        @fg-dark;
+}

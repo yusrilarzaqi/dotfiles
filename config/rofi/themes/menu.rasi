@@ -1,9 +1,3 @@
-/*-*- mode: css; -*-*/
-/**
- * ROFI Color theme
- * User: andrea
- * Copyright: None!
- */
 
 /* global settings and color variables */
 * {
@@ -15,10 +9,14 @@
     bg:               #282a36;
     blackselect:      #44475a;
     cyan:             #8be9fd;
-    font: "SpaceMono Nerd Font Black 12";
+    font:             "JetBrainsMono Nerd Font 12";
     background-color: @bg;
     show-icons: true;
     icon-theme: "Pop";
+}
+
+#window {
+  position: north;
 }
 
 mainbox {
@@ -135,4 +133,4 @@ case-indicator {
     padding: 6px 10px;
     text-color:@maincolor;
     background-color:@bg;
-
+}

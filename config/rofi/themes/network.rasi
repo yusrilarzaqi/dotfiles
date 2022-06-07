@@ -18,19 +18,19 @@ configuration {
 @import "../colors/tokyonight.rasi"
 
 * {
-    background-color:               @bg;
-    text-color:                     @fg;
+  background-color:               @bg;
+  text-color:                     @fg;
 }
 
 window {
-    transparency:                   "real";
-    border-radius:                  6px;
-    location:                       northeast;
-    width:                       	  460px;
-    /* position: northeast; */
-    x-offset:                       -30px;
-    y-offset:                       30px;
-    border:                         1px;
+  transparency:                   "real";
+  border-radius:                  6px;
+  location:                       northeast;
+  width:                       	  460px;
+  /* position: northeast; */
+  x-offset:                       -30px;
+  y-offset:                       30px;
+  border:                         1px;
 }
 
 prompt {

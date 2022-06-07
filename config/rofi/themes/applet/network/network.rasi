@@ -1,0 +1,128 @@
+configuration {
+	font:                      		"JetBrainsMono Nerd Font 12";
+  disable-history:              false;
+  fullscreen:                   false;
+	hide-scrollbar: 				      true;
+	sidebar-mode: 					      false;
+}
+
+@import "../colors.rasi"
+
+* {
+  border:   0;
+  margin:   0;
+  padding:  0;
+  spacing:  0;
+
+  background-color:               @bg;
+  text-color:                     @fg;
+}
+
+window {
+  transparency:               "real";
+  border-radius:              4px;
+  location:                   northeast;
+	width:							        380px;
+  x-offset:                   -10;
+  y-offset:                   25;
+}
+
+prompt {
+  enabled: 						        true;
+  padding:                    10px;
+	background-color: 				  @ac;
+	text-color: 					      @fg-dark;
+  border:                  		2px;
+  border-radius:              4px;
+  border-color:              	@ac;
+}
+
+textbox-prompt-colon {
+	expand: 						      false;
+	/* str: 							        " Network "; */
+  str: "";
+	background-color: 				@al;
+	text-color: 					    @fg-dark;
+  padding:                  12px 40px 0px 10px;
+  border-radius:            4px; 
+}
+
+inputbar {
+	children: 						    [ textbox-prompt-colon, prompt ];
+  spacing:                  12px;
+  background-color:         @al;
+  text-color:               @fg-dark;
+  expand:                   false;
+  border:                  	0px;
+  border-radius:            4px;
+  border-color:             @ac;
+  margin:                   0px 0px 0px 0px;
+  padding:                  0px;
+  position:                 center;
+}
+
+listview {
+  columns:						      4;
+  lines:							      1;
+  spacing:                  12px;
+  cycle:                    true;
+  dynamic:                  true;
+  layout:                   vertical;
+  background-color:         @al;
+}
+
+mainbox {
+  background-color:         @al;
+  children:                 [ inputbar, listview ];
+  spacing:                  12px;
+  margin:                   12px;
+}
+
+element {
+  children: [element-text];
+  background-color:         @al;
+  orientation:              vertical;
+  border-radius:            4px;
+  text-color: @fg-dark;
+}
+
+element-text {
+	font:							        "Iosevka Nerd Font 20";
+  expand:                   true;
+  horizontal-align:         0.5;
+  vertical-align:           0.5;
+  margin:                   2px 2px 2px 2px;
+  border-radius:            4px;
+  background-color: @al;
+}
+
+element normal.urgent,
+element alternate.urgent {
+  background-color:         @off;
+  /* text-color:               @fg; */
+  border-radius:            4px;
+}
+
+element-text normal.active,
+element-text alternate.active {
+  background-color:               @on;
+  text-color: @fg-dark;
+}
+
+element-text selected {
+  text-color: @fg-dark;
+  background-color:               @ac;
+  border:                  		    0px;
+  border-radius:                  4px;
+  border-color:                  	@ac;
+}
+
+element-text selected.urgent {
+  background-color:               @on;
+  text-color:                     @fg-dark;
+}
+
+element-text selected.active {
+  background-color:               @off;
+  color:                          @fg-dark;
+}

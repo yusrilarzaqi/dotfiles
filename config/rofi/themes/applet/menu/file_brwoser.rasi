@@ -1,21 +1,10 @@
+
 configuration {
   font: "JetBrainsMono Nerd Font 10";
 
-  drun {
-    display-name: "";
-  }
-
-  run {
-    display-name: "";
-  }
-
-  window {
-    display-name: "";
-  }
-   
-  ssh {
-    display-name: "";
-  }
+  filebrowser {
+      display-name: "";
+    }
 
   timeout {
     delay: 10;
@@ -23,31 +12,20 @@ configuration {
   }
 }
 
+@import "../colors.rasi"
+
 * {
   border: 0px;
   margin: 0;
   padding: 0;
   spacing: 0;
 
-  /* bg: #2E3440; */
-  /* bg-alt: #3B4252; */
-  /* fg: #81A1C1; */
-  /* fg-alt: #EBCB8B; */
-  /* bg-alt: #3B4261; */
-
-  /* manjaro chan */
-  /* bg: #27283D; */
-  /* bg-alt: #5CB281; */
-  /* fg: #FFFBF7; */
-  /* fg-alt: #5CB281; */
-  /* gray: #21273D; */
-
   /* EverForest */
-  bg: #3c474d;
-  bg-alt: #a7c080;
-  fg: #d3c6aa;
-  fg-alt: #a7c080;
-  select: #2f383e;
+  /* bg: #3c474d; */
+  /* bga: #a7c080; */
+  /* fg: #d3c6aa; */
+  /* fg-alt: #a7c080; */
+  /* select: #2f383e; */
 
 
   background-color: @bg;
@@ -67,25 +45,25 @@ window {
 
 mainbox {
   children: [inputbar, listview];
-  background-color: @bg-alt;
+  background-color: @bga;
 }
 
 inputbar {
-  background-color: @bg-alt;
+  background-color: @ac;
   children: [prompt, entry];
 }
 
 entry {
   background-color: inherit;
-  /* background-color: @bg-alt; */
-  text-color:       @bg;
+  /* background-color: @bga; */
+  text-color:       @bga;
   padding:          12px 3px;
 }
 
 prompt {
   background-color: inherit;
-  text-color:       @bg;
-  /* background-color: @bg-alt; */
+  text-color:       @bga;
+  /* background-color: @bga; */
   padding:          12px;
 }
 
@@ -107,11 +85,11 @@ element-text {
 }
 
 element-icon selected {
-  text-color: @fg-alt;
-  background-color: @select;
+  text-color: @fga;
+  background-color: @bga;
 }
 
 element-text selected {
-  text-color: @fg-alt;
-  background-color: @select;
+  text-color: @fg;
+  background-color: @bga;
 }
