@@ -34,7 +34,7 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': ['php'] }
 
 " AIRLINE
 Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
 " Vim Highlight
 Plug 'sheerun/vim-polyglot'

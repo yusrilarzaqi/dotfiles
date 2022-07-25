@@ -1,0 +1,15 @@
+/* colors */
+
+* {
+  al:   #00000000;
+  /* onedark */
+  bg: rgba(21, 25, 31, 0.5);
+  bga: rgba(76, 98, 111, 0.5);
+  fg: #FDF6E3;
+  fga: #EEE8D5;
+  fg-dark: #222d31;
+  on: #6fc4fd;
+  off: #bf3f3f;
+
+	ac: #33aeff;
+}

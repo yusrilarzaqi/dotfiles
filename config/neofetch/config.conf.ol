@@ -1,26 +1,26 @@
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
-    # info title
+   info title
     # info underline
 
-    info "OS" distro 
+    info " " distro 
     # # info "Host" model
-    info "Kernel" kernel 
-    # info "Uptime" uptime 
-    # info "Packages" packages 
-    info "Shell" shell 
+    info " " kernel 
+    info "祥" uptime 
+    info " " packages 
+    info " " shell 
     # info "Resolution" resolution
-    # info "DE" de 
-    info "WM" wm
+    info "DE" de 
+    info " " wm
     # info "WM Theme" wm_theme
     # info "Theme" theme
     # info "Icons" icons
-    # info "Terminal" term
+    info " " term
     # info "Terminal Font" term_font
     # info "CPU" cpu
     # info "GPU" gpu
-    info "Memory" memory 
+    info " " memory 
 
     # info "GPU Driver" gpu_driver  # Linux/macOS only
     # info "CPU Usage" cpu_usage
@@ -35,7 +35,7 @@ print_info() {
     # info "Locale" locale  # This only works on glibc systems.
 
 
-    # info cols
+    info cols
 }
 
 # Title
@@ -86,7 +86,8 @@ distro_shorthand="on"
 # Example:
 # on:  'Arch Linux x86_64'
 # off: 'Arch Linux'
-os_arch="on"
+# os_arch="on"
+os_arch="off"
 
 
 # Uptime
@@ -117,7 +118,7 @@ uptime_shorthand="on"
 # Example:
 # on:   '1801MiB / 7881MiB (22%)'
 # off:  '1801MiB / 7881MiB'
-memory_percent="off"
+memory_percent="on"
 
 
 # Packages
@@ -513,6 +514,7 @@ mpc_args=()
 # colors=(distro)      - Text is colored based on Distro colors.
 # colors=(4 6 1 8 8 6) - Text is colored in the order above.
 colors=(distro)
+# colors=(1 6 1 4 0 6)
 
 
 # Text Options
@@ -680,8 +682,9 @@ disk_display="off"
 # Values:   'ascii', 'caca', 'chafa', 'jp2a', 'iterm2', 'off',
 #           'termpix', 'pixterm', 'tycat', 'w3m', 'kitty'
 # Flag:     --backend
-image_backend="ascii"
-# image_backend="w3m"
+#image_backend="kitty"
+# image_backend="ascii"
+image_backend="w3m"
 
 # Image Source
 #
@@ -695,9 +698,10 @@ image_backend="ascii"
 # NOTE: 'auto' will pick the best image source for whatever image backend is used.
 #       In ascii mode, distro ascii art will be used and in an image mode, your
 #       wallpaper will be used.
-image_source="auto"
-# image_source="/home/yusril/Pictures/wallpapers/download/rpfrvcim5ab11.png"
+#image_source="auto"
+#image_source="/home/yusril/Pictures/wallpapers/ultrawide/UW_anime-girl-sky-clouds-sunrise-scenery-4K-67.jpg"
 # image_source="/home/yusril/ascii.txt"
+image_source="/home/yusril/Pictures/icon/neon.png"
 
 # Ascii Options
 
@@ -748,8 +752,7 @@ image_source="auto"
 #       Slackware, SunOS, LinuxLite, OpenSUSE, Raspbian,
 #       postmarketOS, and Void have a smaller logo variant.
 #       Use '{distro name}_small' to use the small variants.
-# ascii_distro="auto"
-ascii_distro="debian_small"
+ascii_distro="auto"
 
 # Ascii Colors
 #
@@ -851,3 +854,4 @@ background_color=
 # Default: 'off'
 # Values: 'on', 'off'
 stdout="off"
+

@@ -1,0 +1,138 @@
+@import "../themes/shared/settings.rasi"
+configuration {
+  /* font: "TerminessTTF NF 12"; */
+  /* font: "JetBrainsMono Nerd Font 11"; */
+	font: "Cascadia Mono SemiBold 11";
+
+  drun {
+    display-name: "   Apps ";
+  }
+  run {
+    display-name: "   Run ";
+  }
+  window {
+    display-name: " 﩯  window";
+  }
+  ssh {
+    display-name: "   SSH";
+  }
+  filebrowser {
+    display-name: "";
+  }
+
+  sidebar-mode: true;
+  drun-display-format: "{icon} {name}";
+  terminal: "kitty";
+  icon-theme: "Papirus";
+}
+
+@import "../colors.rasi"
+
+* {
+  fullscreen: false;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  background-color: @al;
+  text-color: @fg;
+  /* border-color: @bg; */
+
+  /* width: 750px; */
+}
+
+window {
+  fullscreen: true;
+  border-radius:5px;
+  transparency:"real";
+  /* location: north; */
+  /* x-offset: 0px; */
+  /* y-offset: 25px; */
+  margin: 5em 10em 3em;
+}
+
+mainbox {
+  children: [inputbar, listview, sidebar];
+  background-color: @bga;
+	/* background-image: linear-gradient(to bottom, #00000000, rgba(47, 61, 68, 0.8), rgba(76, 98, 111, 0.5), #F38BA8); */
+}
+
+inputbar {
+  background-color: @al;
+	/* background-image: linear-gradient(to right, #00000000, rgba(47, 61, 68, 0.8), rgba(76, 98, 111, 0.5), #89b4fa); */
+  background-image: url("~/wallpapers/1.jpg", height);
+  children: [prompt, entry];
+}
+
+entry {
+  /* background-color: inherit; */
+  background-color: @bga;
+  text-color:       @fg;
+  padding:          12px 12px;
+}
+
+prompt {
+  font: "JetBrainsMono Nerd Font 12";
+  background-color: @ac;
+  text-color:       @fg-dark;
+  /* background-color: @bga; */
+  padding:          12px 50px 12px;
+}
+
+listview {
+  lines: 10;
+  columns: 2;
+}
+
+element {
+  children: [element-icon, element-text];
+  background-color: @al;
+}
+
+element-icon {
+  /* padding: 0px 10px; */
+  size: 25px;
+  padding: 5px 10px;
+}
+
+element-text {
+  padding: 10px 0;
+  background-color: @select;
+}
+
+element-icon selected {
+  text-color: @fg;
+  background-color: @bga;
+	/* background-image: linear-gradient(to left, #00000000, rgba(47, 61, 68, 0.8), rgba(76, 98, 111, 0.5), #89b4fa); */
+}
+
+element-text selected {
+  text-color: @fg;
+  background-color: @bga;
+	/* background-image: linear-gradient(to right, #00000000, rgba(47, 61, 68, 0.8), rgba(76, 98, 111, 0.5), #89b4fa); */
+}
+
+sidebar {
+  background-color: @bga;
+  padding: 10px;
+}
+
+button {
+  padding: 0.7em;
+  background-color: @al;
+  text-color: @fg;
+  vertical-align: 0.5; 
+  horizontal-align: 0.5;
+  border-radius: 5px;
+	font: "Cascadia Mono PL 12";
+}
+
+button selected {
+  background-color: @ac;
+	/* background-image: linear-gradient(to right, #00000000, rgba(47, 61, 68, 0.8), rgba(76, 98, 111, 0.5), #89b4fa); */
+  text-color: @bg;
+}
+mode-switcher {
+  spacing: 0;
+}

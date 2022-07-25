@@ -6,6 +6,7 @@ let g:tokyonight_transparent_background = 1
 let g:tokyonight_menu_selection_background = 'green'
 let g:tokyonight_current_word = 'underline'
 
+set background=dark
 colorscheme tokyonight
 
 set autoread
@@ -61,8 +62,7 @@ set wildmenu
 " Make wildmenu behave like similar to Bash completion.
 " set wildmode=list:longest
 
-" There are certain files that we would never want to edit with Vim.
-" Wildmenu will ignore files with these extensions.
+" There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
 

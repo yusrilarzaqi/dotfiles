@@ -1,0 +1,89 @@
+
+configuration {
+	font:                      		"JetBrainsMono Nerd Font 12";
+  disable-history:              false;
+  fullscreen:                   false;
+	hide-scrollbar: 				      true;
+	sidebar-mode: 					      false;
+}
+
+@import "../colors.rasi"
+
+* {
+  background-color:               @al;
+  text-color:                     @fg-dark;
+}
+
+window {
+  transparency:                 "real";
+  border-radius:                4px;
+  location:                     northeast;
+	width:							          450px;
+  x-offset:                     0;
+  y-offset:                     20px;
+  background-color: @bg;
+}
+
+prompt {
+	font:							              "Iosevka Nerd Font 15";
+  enabled: 						          true;
+  /* padding:                      10px; */
+	background-color: 				    @al;
+	text-color: 					        @fg;
+  /* border:                  		  2px 2px 2px 2px; */
+  border-radius:                4px;
+  border-color:                 @ac;
+  margin: 10px 5 0 30;
+}
+
+
+inputbar {
+	children: 						       [ entry ];
+  spacing:                     12px;
+  background-color:            @al;
+  expand:                      false;
+  border:                  		 0px;
+  border-radius:               0px;
+  border-color:                @ac;
+  margin:                      0px;
+  padding:                     0px;
+  position:                    center;
+}
+
+entry {
+  text-color: @fg;
+}
+
+listview {
+  columns:						         3;
+  lines:							         1;
+  spacing:                        12px;
+  cycle:                          true;
+  dynamic:                        true;
+  layout:                         vertical;
+  text-color:@fg-dark;
+}
+
+mainbox {
+  children:                       [  inputbar ];
+  spacing:                        12px;
+  margin:                         12px;
+}
+
+element  {
+  orientation:                    vertical;
+  border-radius:                  4px;
+  border:                         2px;
+  border-color:                   @ac;
+  background-color: @ac;
+  text-color:                     @fg-dark;
+}
+
+element-text {
+	font:							              "Iosevka Nerd Font 22";
+  expand:                         true;
+  horizontal-align:               0.5;
+  vertical-align:                 0;
+  margin:                       1px 1px 1px 1px;
+  border:                       2px 2px 2px 2px;
+}

@@ -11,7 +11,6 @@
   /* off: #e67e80; */
   /* border: ; */
 
-  /* al:   #00000000; */
   /* bg:   #272727FF; */
   /* bga:  #383838FF; */
   /* fga:  #CACACAFF; */
@@ -21,14 +20,29 @@
   /* nord */
   /* bg: #2e3440; */
   /* bg: rgba(20,20,20,0.4); */
-  bg: rgba(46, 52, 64, 0.6);
   /* bg: rgba(204, 46, 52, 0.25); */
-  bga: rgba(76, 86, 106, 0.5);
-  fg: #d8dee9;
-  fga: #eceff4;
-  fg-dark: #2e3440;
+
+  /* bg: rgba(46, 52, 64, 0.6); */
+  /* bga: rgba(76, 86, 106, 0.5); */
+  /* fg: #d8dee9; */
+  /* fga: #eceff4; */
+  /* fg-dark: #2e3440; */
+
   /* ac: #81a1c1; */
-  ac: rgba(129, 161, 193, 0.9);
-  on: #a3be8c;
-  off: #bf616a;
+  /* ac: rgba(129, 161, 193, 0.9); */
+  /* on: #a3be8c; */
+  /* off: #bf616a; */
+
+  /* MANJARO */
+  bg: rgba(47, 61, 68, 0.8);
+  bga: rgba(76, 98, 111, 0.5);
+  fg: #FDF6E3;
+  fga: #EEE8D5;
+  fg-dark: #222d31;
+  /* ac: #15a186; */
+  on: #80FFF9;
+  off: #E5201D;
+
+  /* ac: #89b4fa; */
+	ac: #8ebd6b;
 }

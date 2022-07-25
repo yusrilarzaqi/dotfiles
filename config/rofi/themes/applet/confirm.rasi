@@ -14,9 +14,11 @@ window {
   border:					        0px 0px 4px 0px;
   border-radius:          0px;
   border-color:           @ac;
-  location:               northeast;
-  x-offset:               -10;
-  y-offset:               20;
+  location:               north;
+  x-offset: 0px;
+  y-offset: 25px;
+  /* x-offset:               -10; */
+  /* y-offset:               20; */
   background-color:@bg;
 }
 

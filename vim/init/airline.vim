@@ -2,11 +2,7 @@
 " AIRLINE CONFIGURATION
 " " ============================================================================
 " set airline theme
-"let g:airline_theme = 'base16_aquarium_dark'
-" let g:airline_theme = 'base16_atelier_cave'
-let g:airline_theme = 'tokyonight'
-" let g:airline_theme = 'apprentice'
-" let g:airline_theme = 'nord'
+let g:airline_theme = 'onedark'
 " displays all buffers when there's only one tab open
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#gen_tags#enabled = 1

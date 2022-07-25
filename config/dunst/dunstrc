@@ -22,18 +22,20 @@
     ### Geometry ###
 
     # dynamic width from 0 to 300
-    # width = (0, 300)
+    # width = (200, 300)
+    width = (150, 300)
     # constant width of 300
-    width = 250
+    # width = 250
 
     # The maximum height of a single notification, excluding the frame.
-    # height = (0, 600)
+    # height = (100, 600)
     height = 300
 
     # Position the notification in the top right corner
     origin = top-right
 
     # Offset from the origin
+    # offset = 10x30
     offset = 10x30
 
     # Scale factor. It is auto-detected if value is 0.
@@ -50,17 +52,17 @@
 
     # Set the progress bar height. This includes the frame, so make sure
     # it's at least twice as big as the frame width.
-    progress_bar_height = 7
+    progress_bar_height = 5
 
     # Set the frame width of the progress bar
     progress_bar_frame_width = 0
 
     # Set the minimum width for the progress bar
-    # progress_bar_min_width = 150
-    progress_bar_min_width = 100
+    progress_bar_min_width = 150
+    # progress_bar_min_width = 100
 
     # Set the maximum width for the progress bar
-    progress_bar_max_width = 400
+    progress_bar_max_width = 350
 
 
     # Show how many messages are currently hidden (because of notification_limit).
@@ -69,12 +71,13 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
-    transparency = 20
+    # transparency = 20
+    transparency = 10
 
     # Draw a line of "separator_height" pixel height between two
     # notifications.
     # Set to 0 to disable.
-    separator_height = 2
+    separator_height = 0
 
     # Padding between text and separator.
     padding = 9
@@ -90,7 +93,9 @@
     frame_width = 0
 
     # Defines color of the frame around the notification window.
-    frame_color = "#87afaf"
+    # frame_color = "#788388"
+    # frame_color = "#84af67"
+    frame_color = "#33aeff"
 
     # Define a color for the separator.
     # possible values are:
@@ -112,8 +117,9 @@
 
     ### Text ###
 
-    font = Segoe UI 10
-    # font = Iosevka Nerd Font 10
+    # font = Segoe UI 10
+    # font = TerminessTTF Nerd Font 10
+    font = Cascadia Code PL 10
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -141,7 +147,8 @@
     #
     # It's important to note that markup inside the format option will be parsed
     # regardless of what this is set to.
-    markup = full
+    # markup = full
+    markup = yes
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -154,10 +161,12 @@
     #   %%  Literal %
     # Markup is allowed
     format = "<b>%s</b>\n%b"
+    # format = "%s %p\n%b"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
     alignment = center
+    # alignment = left
 
     # Vertical alignment of message text and icon.
     # Possible values are "top", "center" and "bottom".
@@ -182,7 +191,8 @@
     hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
-    show_indicators = yes
+    # show_indicators = yes
+    show_indicators = no
 
     ### Icons ###
 
@@ -199,7 +209,7 @@
 
     # Paths to default icons.
     # icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
-    icon_path = /usr/share/icons/Papirus-Dark/22x22/actions/:/usr/share/icons/Papirus-Dark/32x32/devices/:/home/yusril/Pictures/icon/
+    icon_path = /usr/share/icons/Papirus-Dark/24x24/actions/:/usr/share/icons/Papirus-Dark/32x32/devices/:/home/yusril/Pictures/icon/:/usr/share/icons/Dracula/:/usr/share/icons/Papirus/symbolic/status/:/usr/share/icons/Papirus/24x24/panel/:/usr/share/icons/Papirus/32x32/apps/
 
     ### History ###
 
@@ -295,23 +305,34 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#2E3440"
-    foreground = "#D8DEE9"
+    # background = "#2E3440"
+    # foreground = "#D8DEE9"
+    # background = "#263238"
+    background = "#282a36"
+    foreground = "#F9FAF9"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_normal]
-    background = "#2E3440"
-    foreground = "#D8DEE9"
+    # background = "#2E3440"
+    # background = "#263238"
+    background = "#282a36"
+    foreground = "#F9FAF9"
+    # foreground = "#D8DEE9"
     timeout = 5
     # new_icon = 
     # Icon for notifications with normal urgency, uncomment to enable
     #default_icon = /path/to/icon
 
 [urgency_critical]
-    background = "#BF616A"
-    foreground = "#2E3440"
+    background = "#f38ba8"
+    # background = "#D62929"
+    # background = "#BF616A"
+
+    foreground = "#45475a"
+    # foreground = "#F9FAF9"
+    # foreground = "#2E3440"
     frame_color = "#00000000"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
@@ -435,8 +456,8 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-#[stack-volumes]
-#    appname = "some_volume_notifiers"
-#    set_stack_tag = "volume"
-#
+[stack-volumes]
+   appname = "some_volume_notifiers"
+   set_stack_tag = "volume"
+
 # vim: ft=cfg

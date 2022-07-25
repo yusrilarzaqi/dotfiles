@@ -11,6 +11,10 @@ condition() {
   curl -sL wttr.in/$LOCATION\?format=%C
 }
 
+cuaca() {
+  curl -sL wttr.in/$LOCATION\?format=%C\&lang=id
+}
+
 display_icon() {
   x=$(condition)
   if [[ $x == "Sunny" ]]; then
@@ -18,22 +22,23 @@ display_icon() {
     echo ""
   elif [[ $x == "Snow" ]]; then
     echo '❄ '
-  # elif [[ $x == 'Rain' ]]; then
-  elif [[ $(curl -sL wttr.in/$LOCATION?format=%C | awk '/rain/') ]]; then
+  elif [[ $x == 'Rain' ]]; then
+  # elif [[ $x == "rain") ]]; then
     echo ""
+    # echo ""
   elif [[ $x == "Cloud" || $(curl -sL wttr.in/$LOCATION?format=%C | awk '/cloudy/') ]]; then
     echo ""
   else
-    # echo ""
-    echo ""
+    echo ""
+    # echo ""
   fi
 }
 
 main() {
   # temp=$(fetch_weather_information)
+  text=$(cuaca)
   icon=$(display_icon)
   echo "$icon"
-
   # echo "$icon $temp"
 }
 #

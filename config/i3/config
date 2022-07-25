@@ -1,23 +1,13 @@
-include ~/.dotfiles/config/i3/themes/nord.conf
+include ~/.dotfiles/config/i3/themes/catppucin.conf
 include ~/.dotfiles/config/i3/workspace.conf
 include ~/.dotfiles/config/i3/mode.conf
 include ~/.dotfiles/config/i3/keybind.conf
+include ~/.dotfiles/config/i3/rule.conf
+include ~/.dotfiles/config/i3/autostart.conf
+
 set $mod Mod4
 
-# font pango:JetBrainsMono Nerd Font 9
-font pango:ComicSans MF 9
-
-
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock-fancy --nofork
-
-# execute dunst
-exec --no-startup-id dunst
-
-# system tray battery
-exec --no-startup-id xfce4-power-manager
-
+font pango:Windows Command Prompt 12
 
 # enable or disable focus on mouse hover (yes | no)
 focus_follows_mouse no
@@ -25,45 +15,18 @@ focus_follows_mouse no
 # Popups during fullscreen mode
 # Syntax: popup_during_fullscreen smart|ignore|leave_fullscreen
 popup_during_fullscreen smart
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # Constraining floating window size
 floating_maximum_size 1100 x 600
-floating_minimum_size 500 x 300
+floating_minimum_size 400 x 200
 
 new_window pixel 0
 new_float normal 0
 
-# Wallpaper using nitrogen
-exec nitrogen --restore &
-
-# keybinding for i3lock
-bindsym $mod+x exec i3lock-fancy -p
-
-# Polybar execute
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
 # Window title alingment 
-title_align center
-
-# Window title icon
-# title_window_icon no
-
-# Window title format
-for_window [class="^.*"] title_format " <b>%class</b>"
-
-# Show the first scratchpad window
-# bindsym $mod+minus scratchpad show
-
-# border syle for new window
-# default_border normal 1px
-# default_border pixel 2
-for_window [class="^.*"] border pixel 2
-
-# Compositor using picom
-exec_always --no-startup-id picom &
+title_align left
 
 #4.13. Hiding borders adjacent to the screen edges
 hide_edge_borders smart
@@ -71,11 +34,31 @@ hide_edge_borders smart
 # 4.31. Drawing marks on window decoration
 show_marks yes
 
-# Enable Taping
-exec xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
-
 smart_gaps on
 
-gaps inner 4
-gaps outer 0
+# gaps inner 4
+# gaps outer 0
 
+gaps inner 10
+gaps outer -2
+
+# bar {
+#   # status_command i3blocks -c ~/.config/i3blocks/i3blocks.conf
+#   status_command i3status -c ~/.dotfiles/config/i3status/theme/manjaro.conf
+# 	i3bar_command i3bar --transparency
+# 	position top
+# 	colors {
+# 		background #1f2329
+# 		separator #dfdfdf
+# 		statusline #dfdfdf
+#
+# 		#                  <border> <background> <text>
+# 		focused_workspace  #8ebd6b  #8ebd6b      #181b20 
+# 		active_workspace   #333333  #5f676a      #ffffff
+# 		inactive_workspace #1f2329  #262626      #dfdfdf
+# 		urgent_workspace   #2f343a  #e55561      #ffffff
+# 		binding_mode       #2f343a  #e55561      #ffffff
+# 	}
+# 	font pango:Windows Command Prompt 12
+# 	separator_symbol ":"
+# }

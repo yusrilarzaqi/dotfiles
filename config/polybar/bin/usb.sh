@@ -34,3 +34,4 @@ usb_print() {
     echo "$output"
 }
 
+echo $usb_print

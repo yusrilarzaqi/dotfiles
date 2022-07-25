@@ -36,12 +36,12 @@ else
 fi
 
 ## Icons
-ICON_UP=""
-ICON_DOWN=""
-ICON_MUTED=""
-pavucontrol=""
+ICON_UP="墳"
+ICON_DOWN=""
+ICON_MUTED=""
+PAVUCONTROL=""
 
-options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN\n$pavucontrol"
+options="$ICON_UP\n$ICON_MUTED\n$ICON_DOWN\n$PAVUCONTROL"
 
 ## Main
 chosen="$(echo -e "$options" | $rofi_command -p "$VOLUME" -dmenu $active $urgent -selected-row 0)"
@@ -55,7 +55,7 @@ case $chosen in
   $ICON_MUTED)
     amixer -q set Master toggle
     ;;
-  $pavucontrol)
+  $PAVUCONTROL)
     pavucontrol
     ;;
 esac

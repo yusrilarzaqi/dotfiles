@@ -1,0 +1,108 @@
+
+configuration {
+  font: "JetBrainsMono Nerd Font 10";
+
+  drun {
+    display-name: "";
+  }
+
+  run {
+    display-name: "";
+  }
+
+  window {
+    display-name: "";
+  }
+
+  ssh {
+    display-name: "";
+  }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+}
+
+@import "../colors.rasi"
+
+* {
+  ac: #35bf5c;
+  bga: #1e1e1e;
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  background-color: @al;
+  text-color: @fg;
+  /* border-color: @bg; */
+
+  width: 650px;
+}
+
+window {
+  border-radius:5px;
+  transparency:"real";
+  location: north;
+  x-offset: 0px;
+  y-offset: 25px;
+}
+
+mainbox {
+  /* children: [inputbar, listview, sidebar]; */
+  children: [inputbar, listview];
+  background-color: @bg;
+}
+
+inputbar {
+  background-color: @ac;
+  /* children: [prompt, entry]; */
+  children: [prompt, entry];
+}
+
+entry {
+  background-color: inherit;
+  /* background-color: @bga; */
+  text-color:       @fg-dark;
+  padding:          12px 3px;
+}
+
+prompt {
+  background-color: inherit;
+  text-color:       @fg-dark;
+  /* background-color: @bga; */
+  padding:          12px;
+}
+
+listview {
+  lines: 10;
+}
+
+element {
+  children: [element-icon, element-text];
+}
+
+element-icon {
+  padding: 0px 10px;
+}
+
+element-text {
+  padding: 10px 0;
+  /* background-color: @select; */
+}
+
+element-icon selected {
+  text-color: @fga;
+  background-color: @bga;
+}
+
+element-text selected {
+  text-color: @fg;
+  background-color: @bga;
+}
+
+sidebar {
+  background-color: @al;
+  padding: 4px;
+}

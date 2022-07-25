@@ -1,0 +1,253 @@
+/* configuration { */
+/* 	font:"JetBrainsMono Nerd Font 12"; */
+/* 	disable-history:false; */
+/* 	fullscreen:     false; */
+/* 	hide-scrollbar: true; */
+/*   show-icons:           true; */
+/* 	sidebar-mode: 	false; */
+/* } */
+/**/
+/* @import "../colors.rasi" */
+/**/
+/* * { */
+/* 	background-color:               @al; */
+/* 	text-color:                     @fg; */
+/* } */
+/**/
+/* window { */
+/* 	transparency:                   "real"; */
+/* 	border-radius:                  4px; */
+/* 	location:                       northeast; */
+/* 	width:							300px; */
+/*   x-offset:                     -10px; */
+/*   y-offset:                     25px; */
+/*   background-color:@bg; */
+/*   border: 0px 0 4; */
+/*   border-color: @ac; */
+/* } */
+/**/
+/* prompt { */
+/* 	margin: 0px 10px; */
+/* 	enabled: 						true; */
+/* 	padding:                        10px 10px; */
+/* 	background-color: 				@bga; */
+/* 	text-color: 					@ac; */
+/* 	border-radius:                  4px; */
+/* 	border:                  		2px 2px 2px 2px; */
+/* 	border-color:                  	@ac; */
+/* } */
+/**/
+/* textbox-prompt-colon { */
+/* 	border-radius:                  4px; */
+/* 	expand: 						false; */
+/* 	str: 							" Screenshot "; */
+/* 	background-color: 				@ac; */
+/* 	text-color: 					@fg-dark; */
+/* 	padding:                        12px 10px 0px 10px; */
+/* } */
+/**/
+/* inputbar { */
+/* 	children: 						[ textbox-prompt-colon, prompt ]; */
+/* 	spacing:                        0px; */
+/* 	background-color:               @al; */
+/* 	/* text-color:                     @fg; */ */
+/* 	expand:                         false; */
+/* 	border:                  		0px; */
+/* 	border-radius:                  4px; */
+/* 	border-color:                  	@ac; */
+/* 	margin:                         0px 0px 0px 8px; */
+/* 	padding:                        0px; */
+/* 	/* position:                       center; */ */
+/* } */
+/**/
+/* listview { */
+/* 	columns:						1; */
+/* 	lines:							3; */
+/*   spacing:                        12px; */
+/* 	cycle:                          true; */
+/* 	dynamic:                        true; */
+/* 	layout:                         vertical; */
+/* } */
+/**/
+/* mainbox { */
+/* 	background-color:               @al; */
+/* 	children:                       [ inputbar, listview ]; */
+/* 	spacing:                        12px; */
+/* 	margin:                         12px; */
+/* } */
+/**/
+/* element { */
+/*   children:                     [ element-text ]; */
+/* 	background-color:               @al; */
+/* 	/* text-color:                     @fg; */ */
+/* 	orientation:                    vertical; */
+/* 	border-radius:                  0px; */
+/* } */
+/**/
+/* element-icon { */
+/*   size:                           24px; */
+/*   border:                         0px; */
+/*   background-color:               @al; */
+/* } */
+/**/
+/* element-text { */
+/* 	/* font:							"feather 16"; */ */
+/* 	expand:                         true; */
+/* 	horizontal-align:               0.5; */
+/* 	vertical-align:                 0.5; */
+/*   margin:                       1px 1px 1px 1px; */
+/* 	/* margin:                         5px 10px 30px 10px; */ */
+/*   text-color:                   @fg; */
+/*   border:                       2px; */
+/*   border-radius:                4px; */
+/* } */
+/**/
+/* element-text normal.urgent, */
+/* element-text alternate.urgent { */
+/* 	background-color:               @off; */
+/* 	text-color:                     @fg-dark; */
+/* 	border-radius:                  0px; */
+/* } */
+/**/
+/* element-text normal.active, */
+/* element-text alternate.active { */
+/* 	background-color:               @on; */
+/* 	text-color:                     @fg-dark; */
+/* } */
+/**/
+/* element-text selected { */
+/* 	background-color:               @ac; */
+/* 	text-color:                     @fg-dark; */
+/* 	border:                  		0px; */
+/*   border-radius:                4px; */
+/* 	border-color:                  	@ac; */
+/* } */
+/**/
+/* element-text selected.urgent { */
+/* 	background-color:               @on; */
+/* 	text-color:                     @fg-dark; */
+/* } */
+/**/
+/* element selected.active { */
+/* 	background-color:               @off; */
+/* 	color:                          @bg; */
+/* } */
+/**/
+/**/
+
+
+/* ================== NEW ================= */
+configuration {
+	font:							    "JetBrainsMono Nerd Font 11";
+  show-icons:           true;
+  fullscreen:           false;
+  drun-display-format:  "{name}";
+  disable-history:      false;
+	hide-scrollbar: 			true;
+	sidebar-mode: 				false;
+}
+
+@import "../colors.rasi"
+
+window {
+  transparency:                   "real";
+  background-color:               @bg;
+  text-color:                     @fg;
+	border:							            0px 0px 0px 0px;
+	border-color:					          @ac;
+  border-radius:                  5px;
+	width:							            250px;
+  location:                       northeast;
+  x-offset:                       -10;
+  y-offset:                       20;
+}
+
+prompt {
+  enabled: 						true;
+	padding: 						2px 0px 0px 10px;
+	/* padding: 						0px 0px 0px 0px; */
+	background-color:		@al;
+	text-color: 				@fg-dark;
+}
+
+textbox-prompt-colon-1 {
+	padding: 					0px 0px 0px 5px;
+	background-color:	@al;
+	text-color: 			@fg-dark;
+	expand:           false;
+	str:              "";
+	font:							"JetBrainsMono Nerd Font 10";
+}
+
+textbox-prompt-colon {
+	padding: 					0px 0px 0px 5px;
+	background-color:	@al;
+	text-color: 			@fg-dark;
+	expand:           false;
+	str:              " Screenshot Flameshot";
+	font:							"JetBrainsMono Nerd Font 10";
+}
+
+inputbar {
+	children: 						          [ textbox-prompt-colon-1 ,textbox-prompt-colon ];
+  background-color:               @ac;
+  text-color:                     @bga;
+  expand:                         false;
+	border:							            0px;
+  border-radius:                  4px;
+	border-color:					          @ac;
+  margin:                         0px;
+  padding:                        8px;
+}
+
+listview {
+  padding:                        0px;
+  background-color:               @al;
+lines:                          4;
+  columns:                        1;
+  spacing:                        6px;
+  cycle:                          true;
+  dynamic:                        true;
+  layout:                         vertical;
+}
+
+mainbox {
+  background-color:               @al;
+	border:							            0px;
+  border-radius:                  0px;
+	border-color:					          @ac;
+  children:                       [ inputbar, listview ];
+  spacing:                       	6px;
+  padding:                        6px;
+}
+
+element {
+  background-color:               @al;
+  /* text-color:                     @fg; */
+  orientation:                    horizontal;
+  border-radius:                  0px;
+  padding:                        8px 8px 8px -16px;
+}
+
+element-icon {
+  size:                           24px;
+  border:                         0px;
+  background-color:               @al;
+}
+
+element-text {
+  background-color:               @al;
+  text-color:                     @fg;
+  expand:                         true;
+  horizontal-align:               0;
+  vertical-align:                 0.5;
+  margin:                         0px 2.5px 0px 2.5px;
+}
+
+element selected {
+  background-color:               @bg;
+	border:							            2px;
+  border-radius:                  4px;
+  border-color:                  	@ac;
+}
+

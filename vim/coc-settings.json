@@ -1,10 +1,8 @@
 {
-	"clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
-
+	// "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
 	"emmet.includeLanguages": {
 		"javascript": "javascriptreact"
 	},
-
 	"coc.preferences.formatOnSaveFiletypes": [
 		"css",
 		"javascript",
@@ -15,7 +13,6 @@
 		"python",
 		"php"
 	],
-
 	// Prettier
 	"prettier.tabWidth": 2,
 	"prettier.semi": true,
@@ -23,14 +20,13 @@
 	"prettier.useTabs": true,
 	"prettier.endOfLine": "lf",
 	"prettier.bracketSpacing": true,
-
 	// python config
+	"python.formatting.provider": "black",
+	"python.linting.pylintEnabled": false,
+	"python.linting.pep8Enabled": false,
 	"python.linting.enabled": true,
-	"python.linting.pylintEnabled": true,
-	"python.linting.pep8Enabled": true,
 	"python.jediEnabled": true,
 	"python.jediShortcut": "JD",
-
 	"jedi.enable": true,
 	"jedi.startupMessage": false,
 	"jedi.markupKindPreferred": "plaintext",
@@ -62,7 +58,6 @@
 		"__pycache__",
 		"venv"
 	],
-
 	// Snippet
 	"snippets.extends": {
 		"php": ["html"]

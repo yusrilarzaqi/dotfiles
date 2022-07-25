@@ -26,7 +26,7 @@ compositing-border = over
 
 
 [colors]
-include-file = $HOME/.dotfiles/config/polybar/colors
+include-file = $HOME/.dotfiles/config/polybar/colors-theme/nord
 
 [bar/Top]
 ; monitor = ${env:MONITOR:HDMI-1}
@@ -487,7 +487,7 @@ ramp-4 = 
 [module/ram]
 type = custom/script
 
-exec = $HOME/.dotfiles/config/polybar/myScript/script.sh
+exec = $HOME/.dotfiles/config/polybar/bin/script.sh
 ; Gruvbox
 ; format = %{T2 B#98971a F#282828}  %{T4 B#32302f F#ebdbb2} <label> %{T- B- F-}
 ; Nord
@@ -502,7 +502,7 @@ click-left = nmcli d connect wlan0
 type = custom/script
 interval =  1
 
-exec = $HOME/.dotfiles/config/polybar/myScript/uptime.sh
+exec = $HOME/.dotfiles/config/polybar/bin/uptime.sh
 ; format = %{T4 F#2e3440 B#CCE5E9F0} <label> %{T- F- B-}
 format = %{T4 F#020E1D B#CCa9b1d6} <label> %{T- F- B-}
 format-padding = 1

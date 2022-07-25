@@ -1,5 +1,6 @@
 configuration {
-	font:                      		"JetBrainsMono Nerd Font 12";
+	/* font:                      		"TerminessTTF Nerd Font 12"; */
+	font:                      		"CaskaydiaCove NF 12";
   disable-history:              false;
   fullscreen:                   false;
 	hide-scrollbar: 				      true;
@@ -22,7 +23,7 @@ window {
   transparency:                 "real";
   border-radius:                4px;
   location:                     northeast;
-	width:							          100px;
+	width:							          110px;
   x-offset:                     -10px;
   y-offset:                     20px;
 }
@@ -37,25 +38,30 @@ prompt {
   /* border-color:                 @ac; */
 }
 
+/* inputbar { */
+/* 	children: 						        [ prompt ]; */
+/*   spacing:                      15; */
+/*   background-color:             @al; */
+/*   text-color:                   @fg; */
+/*   expand:                       false; */
+/*   border:                  		  0px; */
+/*   border-radius:                4px; */
+/*   border-color:                 @ac; */
+/*   margin:                       0px 0px 0px 0px; */
+/*   padding:                      0px; */
+/*   position:                     center; */
+/* } */
+
 inputbar {
-	children: 						        [ prompt ];
-  spacing:                      15;
-  background-color:             @al;
-  text-color:                   @fg;
-  expand:                       false;
-  border:                  		  0px;
-  border-radius:                4px;
-  border-color:                 @ac;
-  margin:                       0px 0px 0px 0px;
-  padding:                      0px;
-  position:                     center;
+  children: [prompt];
+  background-color: @al;
+  border:10;
 }
 
 mainbox {
   background-color:             @al;
-  /* children:                     [ inputbar, listview ]; */
   children:                     [ inputbar ];
-  spacing:                      12px;
+  /* spacing:                      px; */
   margin:                       12px;
 }
 

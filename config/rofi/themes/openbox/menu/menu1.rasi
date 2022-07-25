@@ -1,0 +1,155 @@
+configuration {
+  /* font: "TerminessTTF NF 12"; */
+  font: "JetBrainsMono Nerd Font 11";
+
+  drun {
+    /* display-name: "   Apps "; */
+    display-name: "  ";
+  }
+  run {
+    display-name: "  ";
+    /* display-name: "   Run "; */
+  }
+  window {
+    display-name: " 﩯 ";
+  }
+  network {
+    display-name: " 󰤨  Network";
+  }
+  ssh {
+    display-name: "  ";
+  }
+  
+  
+  filebrowser {
+      /** Directory the file browser starts in. */
+      directory: "/some/directory";
+      /**
+        * Sorting method. Can be set to:
+        *   - "name"
+        *   - "mtime" (modification time)
+        *   - "atime" (access time)
+        *   - "ctime" (change time)
+        */
+      sorting-method: "atime";
+      /** Group directories before files. */
+      directories-first: true;
+   }
+
+  timeout {
+    delay: 10;
+    action: "kb-cancel";
+  }
+  sidebar-mode: true;
+  drun-display-format: "{icon} {name}";
+  terminal: "kitty";
+  icon-theme: "Papirus";
+  hide-scrollbar: true;
+  fullscreen: true;
+}
+
+@import "../colors.rasi"
+
+* {
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  background-color: @al;
+  text-color: @fg;
+  /* border-color: @bg; */
+
+  width: 350px;
+}
+
+window {
+  border-radius:5px;
+  transparency:"real";
+  location: west;
+  x-offset: 40px;
+  y-offset: 0px;
+}
+
+mainbox {
+  children: [inputbar, listview, sidebar];
+  background-color: @bg;
+}
+
+inputbar {
+  background-color: @al;
+  /* children: [prompt, entry]; */
+  children: [prompt, entry];
+  /* background-image: url("~/.config/rofi/themes/openbox/assets/dark/network-header.png"); */
+}
+
+entry {
+  background-color: inherit;
+  background-color: @bga;
+  text-color:       @fg;
+  /* padding:          12px 3px; */
+  padding:          12px 12px;
+}
+
+prompt {
+  font: "JetBrainsMono Nerd Font 12";
+  background-color: @ac;
+  text-color:       @fg-dark;
+  /* background-color: @bga; */
+  padding:          12px;
+}
+
+listview {
+  lines: 17;
+  columns: 1;
+}
+
+element {
+  children: [element-icon, element-text];
+}
+
+element-icon {
+  /* padding: 0px 10px; */
+  size: 25px;
+  padding: 5px 10px;
+}
+
+element-text {
+  padding: 10px 0;
+  background-color: @select;
+}
+
+element-icon selected {
+  text-color: @fga;
+  background-color: @bga;
+  background-image: url("~/.config/rofi/themes/openbox/assets/dark/launcher-header.png", height);
+}
+
+element-text selected {
+  text-color: @fga;
+  background-color: @bga;
+}
+
+sidebar {
+  background-color: @bga;
+  padding: 4px;
+}
+
+button {
+  padding: 10px;
+  background-color: @al;
+  text-color: @fg;
+  vertical-align: 0.5; 
+  horizontal-align: 0.5;
+  
+}
+
+button selected {
+  text-color: @fg-dark;
+  background-color: @on;
+  border-radius: 4px;
+}
+mode-switcher {
+  spacing: 0;
+}
+

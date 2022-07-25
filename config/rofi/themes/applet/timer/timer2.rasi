@@ -1,0 +1,83 @@
+/* ================== NEW ================= */
+configuration {
+	font:							    "JetBrainsMono Nerd Font 11";
+  show-icons:           true;
+  fullscreen:           false;
+  drun-display-format:  "{name}";
+  disable-history:      false;
+	hide-scrollbar: 			true;
+	sidebar-mode: 				false;
+}
+
+@import "../colors.rasi"
+
+window {
+  transparency:                   "real";
+  background-color:               @bg;
+  text-color:                     @fg;
+	border:							            0px 0px 0px 0px;
+	border-color:					          @ac;
+  border-radius:                  5px;
+	width:							            250px;
+  location:                       northeast;
+  x-offset:                       -10;
+  y-offset:                       20;
+}
+
+prompt {
+  enabled: 						true;
+	padding: 						2px 0px 0px 10px;
+	/* padding: 						0px 0px 0px 0px; */
+	background-color:		@al;
+	text-color: 				@fg-dark;
+}
+
+textbox-prompt-colon-1 {
+	padding: 					0px 0px 0px 5px;
+	background-color:	@al;
+	text-color: 			@fg-dark;
+	expand:           false;
+	str:              "祥";
+	font:							"JetBrainsMono Nerd Font 12";
+}
+
+textbox-prompt-colon {
+	padding: 					1px 0px 0px 0px;
+	background-color:	@al;
+	text-color: 			@fg-dark;
+	expand:           true;
+	str:              " TIMER ";
+	font:							"JetBrainsMono Nerd Font 10";
+}
+
+inputbar {
+	children: 						          [ textbox-prompt-colon-1 ,textbox-prompt-colon ];
+  background-color:               @ac;
+  text-color:                     @bga;
+  expand:                         false;
+	border:							            0px;
+  border-radius:                  4px;
+	border-color:					          @ac;
+  margin:                         0px;
+  padding:                        8px;
+}
+
+mainbox {
+  background-color:               @al;
+	border:							            0px;
+  border-radius:                  0px;
+	border-color:					          @ac;
+  children:                       [ inputbar, entry ];
+  spacing:                       	6px;
+  padding:                        6px;
+}
+
+entry {
+  text-color: @fg;
+  padding: 4px 10px;
+  background-color: @al;
+  border-color: @ac;
+  border: 1px;
+  border-radius: 5px;
+}
+

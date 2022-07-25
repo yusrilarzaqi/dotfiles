@@ -1,27 +1,36 @@
 configuration {
-  font: "JetBrainsMono Nerd Font 10";
+  /* font: "TerminessTTF NF 12"; */
+  font: "JetBrainsMono Nerd Font 11";
 
   drun {
-    display-name: "";
+    display-name: "   Apps ";
   }
-
   run {
-    display-name: "";
+    display-name: "   Run ";
   }
-
   window {
-    display-name: "";
+    display-name: " 﩯  window";
   }
-
+  network {
+    display-name: " 󰤨  Network";
+  }
   ssh {
-    display-name: "";
+    display-name: "   SSH";
   }
 
   timeout {
     delay: 10;
     action: "kb-cancel";
   }
+  sidebar-mode: true;
+  drun-display-format: "{icon} {name}";
+  terminal: "kitty";
+  icon-theme: "Dracula";
+  hide-scrollbar: true;
+  fullscreen: true;
 }
+
+@import "./themes/applet/colors.rasi"
 
 * {
   border: 0px;
@@ -29,68 +38,52 @@ configuration {
   padding: 0;
   spacing: 0;
 
-  /* bg: #2E3440; */
-  /* bg-alt: #3B4252; */
-  /* fg: #81A1C1; */
-  /* fg-alt: #EBCB8B; */
-  /* bg-alt: #3B4261; */
-
-  /* manjaro chan */
-  /* bg: #27283D; */
-  /* bg-alt: #5CB281; */
-  /* fg: #FFFBF7; */
-  /* fg-alt: #5CB281; */
-  /* gray: #21273D; */
-
-  /* EverForest */
-  bg: #3c474d;
-  bg-alt: #a7c080;
-  fg: #d3c6aa;
-  fg-alt: #a7c080;
-  select: #2f383e;
-
-
-  /* background-color: @bg; */
-  /* text-color: @fg; */
+  background-color: @al;
+  text-color: @fg;
   /* border-color: @bg; */
 
-  width: 350px;
+  width: 650px;
 }
 
 window {
-  border-radius:                  5px;
-  transparency: "real";
-  location: northwest;
+  border-radius:5px;
+  transparency:"real";
+  location: north;
   x-offset: 0px;
-  y-offset: 20px;
+  y-offset: 25px;
 }
 
 mainbox {
-  children: [inputbar, listview];
-  background-color: @bg-alt;
+  /* children: [inputbar, listview, sidebar]; */
+  /* children: [inputbar, listview, sidebar]; */
+  background-color: @bg;
 }
 
 inputbar {
-  background-color: @bg-alt;
+  background-color: @ac;
+  /* children: [prompt, entry]; */
   children: [prompt, entry];
 }
 
 entry {
-  background-color: inherit;
-  /* background-color: @bg-alt; */
-  text-color:       @bg;
-  padding:          12px 3px;
+  /* background-color: inherit; */
+  background-color: @bga;
+  text-color:       @fg-dark;
+  /* padding:          12px 3px; */
+  padding:          12px 12px;
 }
 
 prompt {
+  font: "JetBrainsMono Nerd Font 12";
   background-color: inherit;
-  text-color:       @bg;
-  /* background-color: @bg-alt; */
+  text-color:       @fg-dark;
+  /* background-color: @bga; */
   padding:          12px;
 }
 
 listview {
-  lines: 13;
+  lines: 10;
+  columns: 2;
 }
 
 element {
@@ -98,20 +91,44 @@ element {
 }
 
 element-icon {
-  padding: 0px 10px;
+  /* padding: 0px 10px; */
+  size: 25px;
+  padding: 5px 10px;
 }
 
 element-text {
   padding: 10px 0;
-  /* background-color: @select; */
+  background-color: @select;
 }
 
 element-icon selected {
-  text-color: @fg-alt;
-  background-color: @select;
+  text-color: @fga;
+  background-color: @bga;
 }
 
 element-text selected {
-  text-color: @fg-alt;
-  background-color: @select;
+  text-color: @fga;
+  background-color: @bga;
 }
+
+sidebar {
+  background-color: @bga;
+  padding: 4px;
+}
+
+button {
+  padding: 10px;
+  background-color: @al;
+  text-color: @fg;
+  vertical-align: 0.5; 
+  horizontal-align: 0.5;
+}
+
+button selected {
+  background-color: @on;
+  text-color: @bg;
+}
+mode-switcher {
+  spacing: 0;
+}
+

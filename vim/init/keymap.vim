@@ -5,7 +5,7 @@
 nnoremap <leader>\ ``
 
 " Type jj to exit insert mode quickly.
-inoremap jj <Esc>
+inoremap jk <Esc>
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
@@ -24,7 +24,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <c-s> :w<CR>
 inoremap <c-s> <ESC>:w<CR>a
 map <C-x> :ter <return>
-vnoremap <C-c> "+y
+vnoremap <C-c> "+y<ESC>
+xnoremap <C-c> "+y
 map <C-p> "+P
 
 nnoremap <C-Left> :tabprevious<CR>

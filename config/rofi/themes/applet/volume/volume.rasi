@@ -21,6 +21,8 @@ window {
   x-offset:                     -10px;
   y-offset:                     25px;
   background-color:@bg;
+  border: 0px 0 4;
+  border-color: @ac;
 }
 
 prompt {

@@ -5,7 +5,8 @@
 * {
   background-color:       @al;
   text-color:             @fg;
-	font:				 	          "JetBrainsMono Nerd Font 12";
+	font:				 	          "ComicMono NF 13";
+	/* font:				 	          "TerminessTTF NF 12"; */
 }
 
 window {
@@ -13,11 +14,13 @@ window {
   padding:    			    25px;
   /* border:					      0px 0px 4px 0px; */
   border-radius:        0px;
-  border-color:         @ac;
+  /* border-color:         @ac; */
   location:             north;
   y-offset:25px;
   /* x-offset:-20px; */
   background-color: @bg;
+  border: 0px 0 4;
+  border-color: @ac;
 }
 prompt {
   enabled:true;

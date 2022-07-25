@@ -1,0 +1,62 @@
+configuration {
+	font:"Iosevka Nerd Font 12";
+  disable-history:false;
+  fullscreen:false;
+	hide-scrollbar: 				      true;
+	sidebar-mode:false;
+}
+
+@import "../colors.rasi"
+
+* {
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  background-color:             @al;
+  text-color:                   @fg;
+}
+
+window {
+  transparency:                 "real";
+  border-radius:                4px;
+  location:                     northeast;
+	width:							          470px;
+	/* width:							          500px; */
+  x-offset:                     80px;
+  y-offset:                     30px;
+}
+
+prompt {
+  enabled:true;
+  padding:10px;
+	background-color: 				    @ac;
+	text-color: 					        @fg-dark;
+  border-radius:                4px;
+  /* border:                  		  2px; */
+  /* border-color:                 @ac; */
+}
+
+inputbar {
+	children:[ prompt ];
+  spacing:0px;
+  background-color:@al;
+  text-color:@fg;
+  expand:true;
+  border:                  		  0px;
+  border-radius:                4px;
+  border-color:                 @ac;
+  margin:                       0px 0px 0px 0px;
+  padding:                      0px;
+  position:                     center;
+}
+
+mainbox {
+  background-color:             @al;
+  /* children:                     [ inputbar, listview ]; */
+  children:                     [ inputbar ];
+  spacing:                      100px;
+  /* margin:                       12px; */
+}
+

@@ -19,9 +19,9 @@ CHOSEN="$(echo -e "$OPTIONS" | $ROFI_COMMAND -p "$DATA" -dmenu -selected-row 0)"
 
 case $CHOSEN in
   "YES")
-    # PASSWD=$(ask_password &)
-    # echo  $PASSWD | sudo -S paru -Syyyu
-    paru -Syyyu
+    PASSWD=$(ask_password &)
+    echo  $PASSWD | sudo -S pamac update
+    # paru -Syyyu
     ;;
   "NO")
     ;;
